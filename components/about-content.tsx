@@ -9,19 +9,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { skills } from "@/data/skills";
 import { experience } from "@/data/experience";
+import { SkillsGrid } from "@/components/skills-grid";
 import { Calendar, MapPin, Building } from "lucide-react";
 
 export function AboutContent() {
-  const skillCategories = skills.reduce((acc, skill) => {
-    if (!acc[skill.category]) {
-      acc[skill.category] = [];
-    }
-    acc[skill.category].push(skill);
-    return acc;
-  }, {} as Record<string, typeof skills>);
-
   return (
     <div className="space-y-16">
       {/* Bio Section */}
@@ -39,22 +31,14 @@ export function AboutContent() {
             <p className="text-muted-foreground leading-relaxed">
               I'm a Computer Science student at Yale University with a passion
               for building innovative solutions at the intersection of AI, data
-              engineering, and healthcare. My journey began with self-taught iOS
-              development, leading to successful mobile apps with thousands of
-              downloads across 50+ countries.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Currently, I'm working on predictive analytics for breast cancer
-              recurrence at Yale School of Medicine, where I'm developing AI
-              models to interface with large-scale electronic health records. I
-              also lead product development for Yale's largest CS club, managing
-              9 software products with 20,000+ users.
+              engineering, and healthcare. Currently working on predictive
+              analytics for breast cancer recurrence at Yale School of Medicine
+              and leading product development for Yale's largest CS club.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               My experience spans from building scalable data pipelines at
               Bloomberg to developing AI-powered clinical trial analytics. I'm
-              passionate about using technology to solve real-world problems and
-              make a meaningful impact.
+              passionate about using technology to solve real-world problems.
             </p>
 
             {/* What I'm Learning */}
@@ -81,29 +65,7 @@ export function AboutContent() {
         <h2 className="text-3xl font-bold text-center mb-8">
           Skills & Technologies
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Object.entries(skillCategories).map(([category, categorySkills]) => (
-            <Card key={category}>
-              <CardHeader>
-                <CardTitle className="text-lg">{category}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {categorySkills.map((skill) => (
-                    <Badge
-                      key={skill.name}
-                      variant="secondary"
-                      className="text-sm"
-                    >
-                      {skill.icon && <span className="mr-1">{skill.icon}</span>}
-                      {skill.name}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <SkillsGrid />
       </motion.section>
 
       {/* Experience Timeline */}
