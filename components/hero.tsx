@@ -155,7 +155,7 @@ export function Hero() {
               <div className="w-[26rem] h-[26rem] rounded-full bg-gradient-to-br from-primary/10 to-background border border-primary/10 flex items-center justify-center">
                 <div className="w-[24rem] h-[24rem] rounded-full bg-gradient-to-br from-primary/5 to-background border border-primary/5 flex items-center justify-center">
                   <Image
-                    src="/headshot.jpg"
+                    src="/home/headshot.JPG"
                     alt="Jeet Parikh"
                     width={384}
                     height={384}
