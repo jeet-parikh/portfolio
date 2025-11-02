@@ -99,7 +99,7 @@ export function Hero() {
                 whileTap={{ scale: 0.95 }}
                 className="magnetic-hover"
               >
-                <Button asChild variant="outline" size="lg">
+                <Button asChild variant="outline" size="lg" className="hover:bg-muted hover:text-foreground">
                   <Link href="/contact">Get In Touch</Link>
                 </Button>
               </motion.div>

@@ -56,7 +56,7 @@ export function ProjectGrid() {
 
             <CardHeader>
               <div className="flex items-start justify-between">
-                <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                <CardTitle className="text-xl transition-colors">
                   {project.title}
                 </CardTitle>
                 {project.featured && !project.imageUrl && (
@@ -101,14 +101,19 @@ export function ProjectGrid() {
 
             <CardFooter className="flex gap-2 pb-6">
               {project.githubUrl && (
-                <Button asChild variant="outline" size="sm" className="flex-1">
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  className="flex-1 hover:bg-muted hover:text-foreground"
+                >
                   <Link
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <Github className="h-4 w-4 mr-2" />
-                    Code
+                    <span className="transition-none">Code</span>
                   </Link>
                 </Button>
               )}
