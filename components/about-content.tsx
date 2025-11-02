@@ -29,16 +29,7 @@ export function AboutContent() {
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-muted-foreground leading-relaxed">
-              I'm a Computer Science student at Yale University with a passion
-              for building innovative solutions at the intersection of AI, data
-              engineering, and healthcare. Currently working on predictive
-              analytics for breast cancer recurrence at Yale School of Medicine
-              and leading product development for Yale's largest CS club.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              My experience spans from building scalable data pipelines at
-              Bloomberg to developing AI-powered clinical trial analytics. I'm
-              passionate about using technology to solve real-world problems.
+              I'm a Computer Science student at Yale University passionate about building products powered by AI and data. I love turning new technology into scalable, impactful tools—currently leading product development for Yale's largest CS club and exploring how intelligent systems can reshape the way we work and create.
             </p>
 
             {/* What I'm Learning */}
@@ -47,9 +38,7 @@ export function AboutContent() {
                 Currently Learning
               </h3>
               <p className="text-sm text-muted-foreground">
-                Advanced ML techniques for healthcare, distributed systems with
-                Kubernetes, and exploring the intersection of AI and scientific
-                computing.
+                Studying agentic AI to design autonomous systems capable of reasoning, learning, and acting in the real world, with the goal of building products that think and act like collaborators
               </p>
             </div>
           </CardContent>

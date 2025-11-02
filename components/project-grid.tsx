@@ -35,15 +35,15 @@ export function ProjectGrid() {
           whileHover={{ y: -8, scale: 1.02 }}
           className="group"
         >
-          <Card className="h-full flex flex-col hover:shadow-xl transition-all duration-300 border-border/50 hover:border-primary/50 overflow-hidden glow-effect">
+          <Card className="h-full flex flex-col hover:shadow-xl transition-all duration-300 border-border/50 hover:border-primary/50 overflow-hidden glow-effect p-0">
             {/* Project Image */}
             {project.imageUrl && (
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-48 overflow-hidden m-0 p-0">
                 <Image
                   src={project.imageUrl}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 {project.featured && (
@@ -99,7 +99,7 @@ export function ProjectGrid() {
               </div>
             </CardContent>
 
-            <CardFooter className="flex gap-2">
+            <CardFooter className="flex gap-2 pb-6">
               {project.githubUrl && (
                 <Button asChild variant="outline" size="sm" className="flex-1">
                   <Link

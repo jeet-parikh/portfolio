@@ -15,7 +15,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -151,15 +151,18 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex justify-center lg:justify-end"
           >
-            <div className="relative">
-              <div className="w-80 h-80 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center">
-                <div className="w-72 h-72 rounded-full bg-gradient-to-br from-primary/10 to-background border border-primary/10 flex items-center justify-center">
-                  <div className="w-64 h-64 rounded-full bg-gradient-to-br from-primary/5 to-background border border-primary/5 flex items-center justify-center">
-                    <div className="text-6xl font-bold text-primary/60">JP</div>
-                  </div>
+            <div className="w-[28rem] h-[28rem] -mt-30 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center relative shadow-2xl">
+              <div className="w-[26rem] h-[26rem] rounded-full bg-gradient-to-br from-primary/10 to-background border border-primary/10 flex items-center justify-center">
+                <div className="w-[24rem] h-[24rem] rounded-full bg-gradient-to-br from-primary/5 to-background border border-primary/5 flex items-center justify-center">
+                  <Image
+                    src="/headshot.jpg"
+                    alt="Jeet Parikh"
+                    width={384}
+                    height={384}
+                    className="w-[24rem] h-[24rem] rounded-full object-cover"
+                  />
                 </div>
               </div>
-
               {/* Floating elements */}
               <motion.div
                 animate={{

@@ -20,7 +20,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Github, Linkedin, Mail, Twitter, MapPin, Phone } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -50,12 +50,6 @@ const socialLinks = [
     href: "mailto:jeet.parikh@yale.edu",
     icon: Mail,
     color: "hover:text-red-600",
-  },
-  {
-    name: "Twitter",
-    href: "https://twitter.com/jeetparikh",
-    icon: Twitter,
-    color: "hover:text-blue-400",
   },
 ];
 

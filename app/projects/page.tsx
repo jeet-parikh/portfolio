@@ -8,11 +8,7 @@ export default function ProjectsPage() {
           <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
             My Projects
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A collection of my work spanning AI, data engineering, mobile
-            development, and full-stack applications. Each project represents a
-            unique challenge and learning opportunity.
-          </p>
+          
         </div>
 
         <ProjectGrid />

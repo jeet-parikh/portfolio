@@ -8,10 +8,7 @@ export default function AboutPage() {
           <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
             About Me
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Get to know more about my journey, skills, and experience in
-            software engineering and AI research.
-          </p>
+          
         </div>
 
         <AboutContent />
