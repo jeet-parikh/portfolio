@@ -70,10 +70,9 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0"
             >
-              I'm a Computer Science student at Yale University with experience
-              in AI, data engineering, and full-stack development. Currently
-              working on predictive analytics for healthcare and leading
-              development at Yale's largest CS club.
+              I'm a Computer Science student at Yale University with experience in AI, data 
+              engineering, and full-stack development. I currently lead product development 
+              for Yale's largest CS club, building scalable and impactful software.
             </motion.p>
 
             <motion.div

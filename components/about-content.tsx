@@ -29,7 +29,7 @@ export function AboutContent() {
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-muted-foreground leading-relaxed">
-              I'm a Computer Science student at Yale University passionate about building products powered by AI and data. I love turning new technology into scalable, impactful tools—currently leading product development for Yale's largest CS club and exploring how intelligent systems can reshape the way we work and create.
+              I'm a Computer Science student at Yale University passionate about building products powered by AI and data. I love turning new technology into scalable, impactful tools. I'm currently leading product development for Yale's largest CS club and exploring how intelligent systems can reshape the way we work and create.
             </p>
 
             {/* What I'm Learning */}
@@ -38,7 +38,7 @@ export function AboutContent() {
                 Currently Learning
               </h3>
               <p className="text-sm text-muted-foreground">
-                Studying agentic AI to design autonomous systems capable of reasoning, learning, and acting in the real world, with the goal of building products that think and act like collaborators
+                Learning agentic AI to design autonomous systems capable of reasoning, learning, and acting in the real world, with the goal of building products that think and act like collaborators
               </p>
             </div>
           </CardContent>
