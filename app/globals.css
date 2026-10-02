@@ -185,19 +185,15 @@ html.cursor-on .cursor-ring {
     box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .plate:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: 12px 12px 0 0 var(--signal);
-  }
+.plate:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0 0 var(--signal);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .plate {
-    transition: none;
-  }
-
+  .plate,
   .plate:hover {
+    transition: none;
     transform: none;
     box-shadow: 8px 8px 0 0 var(--signal);
   }
