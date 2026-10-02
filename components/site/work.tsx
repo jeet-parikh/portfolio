@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { projectOrder, projects } from "@/data/projects";
+import { publicSrc } from "@/lib/base-path";
 import { cn } from "@/lib/utils";
 import { frame, Kicker, Plate, Reveal, Wipe } from "./ui";
 
@@ -50,7 +51,7 @@ export function Work() {
                 <Plate className="relative aspect-[4/3] overflow-hidden border border-ink bg-sheet">
                   {project.imageUrl ? (
                     <Image
-                      src={project.imageUrl}
+                      src={publicSrc(project.imageUrl)}
                       alt={`${project.title} product preview`}
                       fill
                       sizes="(min-width: 1024px) 46vw, 100vw"

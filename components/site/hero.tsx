@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
+import { publicSrc } from "@/lib/base-path";
 import { CropMarks, frame, Kicker, Plate, Reveal, Wipe } from "./ui";
 
 const facts = [
@@ -63,12 +64,12 @@ export function Hero() {
             <CropMarks />
             <Plate className="relative h-[32vh] min-h-56 overflow-hidden border border-ink bg-sheet lg:h-auto lg:aspect-[3/4]">
               <Image
-                src="/home/headshot.JPG"
-                alt="Jeet Parikh, smiling with arms crossed in a stone colonnade"
+                src={publicSrc("/home/headshot.JPG")}
+                alt="Jeet Parikh smiling in a black blazer and white shirt, in a stone colonnade"
                 fill
                 priority
                 sizes="(min-width: 1024px) 36vw, 92vw"
-                className="plate-photo object-cover object-[center_22%]"
+                className="plate-photo object-cover object-[center_42%]"
               />
             </Plate>
           </Wipe>

@@ -35,6 +35,7 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jeet-parikh.github.io"),
   title: "Jeet Parikh — EECS, Yale",
   description:
     "Jeet Parikh studies electrical engineering and computer science at Yale. Software engineer intern at Databricks, president of the Yale Computer Society, and founder of two iOS apps.",
@@ -61,7 +62,7 @@ export const metadata: Metadata = {
     siteName: "Jeet Parikh",
     images: [
       {
-        url: "/home/headshot.JPG",
+        url: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/home/headshot.JPG`,
         alt: "Jeet Parikh",
       },
     ],
@@ -71,7 +72,7 @@ export const metadata: Metadata = {
     title: "Jeet Parikh — EECS, Yale",
     description:
       "EECS at Yale. Databricks, Yale Computer Society, Bloomberg, and two iOS apps.",
-    images: ["/home/headshot.JPG"],
+    images: [`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/home/headshot.JPG`],
     creator: "@jeetparikh",
   },
 };
