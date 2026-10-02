@@ -179,26 +179,27 @@ html.cursor-on .cursor-ring {
 }
 
 .plate {
-  --px: 0;
-  --py: 0;
-  box-shadow: calc(8px + var(--px) * 18px) calc(8px + var(--py) * 18px) 0 0
-    var(--signal);
-  transition: box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 8px 8px 0 0 var(--signal);
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.plate .plate-photo {
-  transform: translate3d(calc(var(--px) * -16px), calc(var(--py) * -16px), 0)
-    scale(1.05);
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+@media (hover: hover) and (pointer: fine) {
+  .plate:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0 0 var(--signal);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .plate {
-    box-shadow: 8px 8px 0 0 var(--signal);
+    transition: none;
   }
 
-  .plate .plate-photo {
+  .plate:hover {
     transform: none;
+    box-shadow: 8px 8px 0 0 var(--signal);
   }
 }
 

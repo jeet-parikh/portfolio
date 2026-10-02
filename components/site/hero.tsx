@@ -11,13 +11,6 @@ import { useRef } from "react";
 import { publicSrc } from "@/lib/base-path";
 import { CropMarks, frame, Kicker, Plate, Reveal, Wipe } from "./ui";
 
-const facts = [
-  { label: "Now", value: "Databricks, Mountain View" },
-  { label: "Also", value: "President, Yale Computer Society" },
-  { label: "Study", value: "EECS · 3.97 · Class of 2028" },
-  { label: "From", value: "Irvine, CA" },
-];
-
 export function Hero() {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLElement>(null);
@@ -50,8 +43,8 @@ export function Hero() {
             <h1 className="mt-4 font-serif text-[clamp(3.6rem,8vw,6.2rem)] leading-[0.9] tracking-[-0.045em]">
               Jeet Parikh
             </h1>
-            <p className="mt-4 max-w-md font-serif text-2xl text-signal italic md:text-3xl">
-              I study EECS at Yale.
+            <p className="mt-4 max-w-lg font-serif text-2xl leading-snug text-signal italic md:text-3xl">
+              I&apos;m a sports fan, and I&apos;m from Irvine.
             </p>
           </Reveal>
         </div>
@@ -82,14 +75,12 @@ export function Hero() {
           <Reveal delay={0.08}>
             <div className="max-w-xl space-y-4 text-lg leading-relaxed">
               <p>
-                I&apos;m a software engineer intern at Databricks. I built an
-                agent that improves production data pipelines on its own. It cut
-                latency by 30% and compute by 25%.
+                I&apos;m a student at Yale, studying electrical engineering and
+                computer science.
               </p>
               <p>
-                I also lead Yale Computer Society. In 2025 I interned at
-                Bloomberg, and I shipped two iOS apps I taught myself to build
-                in Irvine.
+                I love adventure, taking pictures, traveling, and Thai food. I
+                also love building cool things for people.
               </p>
             </div>
           </Reveal>
@@ -99,16 +90,6 @@ export function Hero() {
               style={{ scaleX: rule }}
               className="mt-8 h-px origin-left bg-signal"
             />
-            <dl className="mt-5 grid gap-x-6 gap-y-4 sm:grid-cols-2">
-              {facts.map((fact) => (
-                <div key={fact.label}>
-                  <dt className="font-mono text-[10px] tracking-[0.18em] text-signal uppercase">
-                    {fact.label}
-                  </dt>
-                  <dd className="mt-1 text-base">{fact.value}</dd>
-                </div>
-              ))}
-            </dl>
             <a
               href="#work"
               data-cursor="look"
