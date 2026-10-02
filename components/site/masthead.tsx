@@ -33,7 +33,7 @@ export function Masthead() {
   ).padStart(2, "0");
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-rule bg-paper/85 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-rule bg-paper">
       <div className="flex h-14 items-center justify-between gap-4 px-5 sm:px-8 lg:pr-14 lg:pl-24">
         <a
           href="#opening"

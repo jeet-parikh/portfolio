@@ -70,12 +70,12 @@ html[data-press="night"] {
   }
 
   section[id] {
-    scroll-margin-top: 7.25rem;
+    scroll-margin-top: 6.75rem;
   }
 
   @media (min-width: 1024px) {
     section[id] {
-      scroll-margin-top: 5rem;
+      scroll-margin-top: 3.5rem;
     }
   }
 }

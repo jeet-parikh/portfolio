@@ -50,6 +50,25 @@ export function Hero() {
           </h1>
         </div>
 
+        <figure className="lg:col-span-4 lg:col-start-9 lg:row-span-2 lg:row-start-1 lg:self-center">
+          <div className="group/plate relative" data-plate>
+            <CropMarks />
+            <div className="relative h-[42vh] overflow-hidden border border-ink bg-sheet shadow-[8px_8px_0_0_var(--ink)] lg:aspect-[3/4] lg:h-auto">
+              <Image
+                src="/home/headshot.JPG"
+                alt="Jeet Parikh, smiling with arms crossed in a stone colonnade"
+                fill
+                priority
+                sizes="(min-width: 1024px) 28vw, 90vw"
+                className="plate-photo object-cover object-[center_24%]"
+              />
+            </div>
+          </div>
+          <figcaption className="mt-3 font-mono text-[10px] tracking-[0.16em] text-muted uppercase">
+            fig. 00 — color returns if you look
+          </figcaption>
+        </figure>
+
         <div className="max-w-xl lg:col-span-7">
           <p className="text-lg leading-relaxed md:text-xl">
             I study computer science at Yale. I taught myself to code during a
@@ -88,25 +107,6 @@ export function Hero() {
             </div>
           </dl>
         </div>
-
-        <figure className="lg:col-span-4 lg:col-start-9 lg:row-span-2 lg:row-start-1 lg:self-center">
-          <div className="group/plate relative" data-plate>
-            <CropMarks />
-            <div className="relative aspect-[4/3] overflow-hidden border border-ink bg-sheet shadow-[8px_8px_0_0_var(--ink)] lg:aspect-[3/4]">
-              <Image
-                src="/home/headshot.JPG"
-                alt="Jeet Parikh, smiling with arms crossed in a stone colonnade"
-                fill
-                priority
-                sizes="(min-width: 1024px) 28vw, 90vw"
-                className="plate-photo object-cover object-[center_58%] lg:object-[center_22%]"
-              />
-            </div>
-          </div>
-          <figcaption className="mt-3 font-mono text-[10px] tracking-[0.16em] text-muted uppercase">
-            fig. 00 — color returns if you look
-          </figcaption>
-        </figure>
       </div>
     </section>
   );
