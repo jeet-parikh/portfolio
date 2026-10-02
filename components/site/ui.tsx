@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
+import { type MouseEvent, type ReactNode, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 export const frame = "px-5 sm:px-8 lg:pl-24 lg:pr-14";
@@ -40,23 +40,57 @@ export function CropMarks() {
   );
 }
 
+export function Plate({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+
+  const onMove = (event: MouseEvent<HTMLDivElement>) => {
+    if (reduce || !ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+    ref.current.style.setProperty("--px", x.toFixed(3));
+    ref.current.style.setProperty("--py", y.toFixed(3));
+  };
+
+  const onLeave = () => {
+    ref.current?.style.setProperty("--px", "0");
+    ref.current?.style.setProperty("--py", "0");
+  };
+
+  return (
+    // biome-ignore lint/a11y/noStaticElementInteractions: pointer tilt is visual only
+    <div
+      ref={ref}
+      className={cn("plate", className)}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+    >
+      {children}
+    </div>
+  );
+}
+
 export function Wipe({
   children,
   className,
   from = "left",
-  plated = false,
 }: {
   children: ReactNode;
   className?: string;
   from?: "left" | "right";
-  plated?: boolean;
 }) {
   const reduce = useReducedMotion();
   const hidden =
     from === "left" ? "inset(0% 100% 0% 0%)" : "inset(0% 0% 0% 100%)";
   return (
     <motion.div
-      data-plate={plated ? "" : undefined}
       className={className}
       initial="hidden"
       whileInView="shown"

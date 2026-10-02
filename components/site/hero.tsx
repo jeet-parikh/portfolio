@@ -8,7 +8,7 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import { CropMarks, frame, Kicker, Reveal, Wipe } from "./ui";
+import { CropMarks, frame, Kicker, Plate, Reveal, Wipe } from "./ui";
 
 const facts = [
   { label: "Now", value: "Databricks, Mountain View" },
@@ -59,9 +59,9 @@ export function Hero() {
           style={{ y: photoY }}
           className="lg:col-span-5 lg:row-span-2"
         >
-          <Wipe from="right" plated className="group/plate relative">
+          <Wipe from="right" className="relative">
             <CropMarks />
-            <div className="relative h-[32vh] min-h-56 overflow-hidden border border-ink bg-sheet shadow-[8px_8px_0_0_var(--signal)] lg:h-auto lg:aspect-[3/4]">
+            <Plate className="relative h-[32vh] min-h-56 overflow-hidden border border-ink bg-sheet lg:h-auto lg:aspect-[3/4]">
               <Image
                 src="/home/headshot.JPG"
                 alt="Jeet Parikh, smiling with arms crossed in a stone colonnade"
@@ -70,7 +70,7 @@ export function Hero() {
                 sizes="(min-width: 1024px) 36vw, 92vw"
                 className="plate-photo object-cover object-[center_22%]"
               />
-            </div>
+            </Plate>
           </Wipe>
           <figcaption className="mt-3 font-mono text-[10px] tracking-[0.16em] text-muted uppercase">
             fig. 00 — Jeet, New Haven

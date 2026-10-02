@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { projectOrder, projects } from "@/data/projects";
 import { cn } from "@/lib/utils";
-import { frame, Kicker, Reveal, Wipe } from "./ui";
+import { frame, Kicker, Plate, Reveal, Wipe } from "./ui";
 
 function linkLabel(url: string) {
   if (url.includes("apps.apple.com")) return "App Store";
@@ -45,10 +45,9 @@ export function Work() {
             >
               <Wipe
                 from={index % 2 === 0 ? "left" : "right"}
-                plated
-                className="group/plate relative"
+                className="relative"
               >
-                <div className="relative aspect-[4/3] overflow-hidden border border-ink bg-sheet shadow-[8px_8px_0_0_var(--signal)] transition-transform duration-500 group-hover/plate:-translate-x-1 group-hover/plate:-translate-y-1">
+                <Plate className="relative aspect-[4/3] overflow-hidden border border-ink bg-sheet">
                   {project.imageUrl ? (
                     <Image
                       src={project.imageUrl}
@@ -58,7 +57,7 @@ export function Work() {
                       className="plate-photo object-contain p-3"
                     />
                   ) : null}
-                </div>
+                </Plate>
               </Wipe>
               <p className="mt-3 font-mono text-[10px] tracking-[0.16em] text-muted uppercase">
                 {project.caption}
