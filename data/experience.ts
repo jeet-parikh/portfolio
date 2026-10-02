@@ -8,6 +8,7 @@ export interface Experience {
   current: boolean;
   description: string[];
   tags: string[];
+  aside: string;
 }
 
 export const experience: Experience[] = [
@@ -19,6 +20,7 @@ export const experience: Experience[] = [
     startDate: "Jun 2025",
     endDate: "Aug 2025",
     current: false,
+    aside: "A summer inside the Terminal, moving more rows than I can picture.",
     description: [
       "Engineered a scalable data pipeline using Apache Spark and Kafka to automate the ingestion of 100M+ financial records daily",
       "Deployed to production on the Bloomberg Terminal, directly powering analytics for 300+ enterprise clients and internal teams",
@@ -40,6 +42,7 @@ export const experience: Experience[] = [
     startDate: "Mar 2025",
     endDate: "Present",
     current: true,
+    aside: "The question I most want a careful answer to.",
     description: [
       "Developing a predictive analytics tool using PySpark and AI modeling to forecast breast cancer recurrence",
       "Interfacing with OMOP-standardized electronic health record data at scale",
@@ -55,6 +58,7 @@ export const experience: Experience[] = [
     startDate: "Oct 2024",
     endDate: "Jun 2025",
     current: false,
+    aside: "Trial data is a mess. The job was to make its shape visible.",
     description: [
       "Built an AI system using semantic vector embeddings, NLP and LLMs to extract and cluster unstructured clinical trial API data",
       "Deployed a user-facing oncology trial trend analytics tool (React, Three.js) on AWS EC2",
@@ -71,15 +75,17 @@ export const experience: Experience[] = [
   },
   {
     id: "yale-cs",
-    title: "Director of Development",
+    title: "President",
     company: "Yale Computer Society",
     location: "New Haven, CT",
     startDate: "Sep 2024",
     endDate: "Present",
     current: true,
+    aside:
+      "A hundred builders, nine products, and a calendar that had to behave.",
     description: [
-      "Leading product development of Yale's largest CS club, shaping 9 software products with 20,000+ users and 100+ student devs",
-      "Team Lead of ymeets.com; Grew site to 2,500 users while adding features and shipping code from a 10-person developer team",
+      "President of Yale's largest CS club, shaping 9 software products with 20,000+ users and 100+ student developers",
+      "Team lead of ymeets.com — grew the site to 2,500 users while shipping with a 10-person developer team",
     ],
     tags: [
       "Leadership",
@@ -97,6 +103,7 @@ export const experience: Experience[] = [
     startDate: "Jun 2020",
     endDate: "Aug 2024",
     current: false,
+    aside: "Two apps, started from zero, for problems that began at home.",
     description: [
       "Launched 2 successful native iOS apps (Kare and PlantVision AI) which have gained 8,000+ downloads across 50+ countries",
       "Self-taught iOS app development in Swift and Xcode. Integrated push notifications, 2FA, and on-device inference via CoreML",
@@ -118,6 +125,8 @@ export const experience: Experience[] = [
     startDate: "Aug 2022",
     endDate: "Jan 2024",
     current: false,
+    aside:
+      "Materials, models, and 4,614 CUDA-core years I still like saying out loud.",
     description: [
       "Developed an ML benchmarking suite for complex materials discovery algorithms, available open-source as a Python package",
       "Ran multi-objective Bayesian optimization jobs with Meta's Ax on SLURM GPU clusters (4,614 CUDA-core years of runtime)",
@@ -131,5 +140,20 @@ export const experience: Experience[] = [
       "Bayesian Optimization",
       "GPU Computing",
     ],
+  },
+  {
+    id: "futuremakers",
+    title: "Deep Learning Intern",
+    company: "MIT FutureMakers",
+    location: "Cambridge, MA",
+    startDate: "Jun 2022",
+    endDate: "Aug 2022",
+    current: false,
+    aside: "Eight weeks on the ethics underneath a health app.",
+    description: [
+      "Selected for an eight-week deep learning program with experts at MIT, focused on the ethics of software that touches private data",
+      "Used the summer to reshape Kare around personalized care, accessibility, and simplicity",
+    ],
+    tags: ["Deep Learning", "Ethics", "Healthcare", "iOS"],
   },
 ];
