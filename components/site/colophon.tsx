@@ -68,24 +68,23 @@ export function Colophon() {
     <section id="write" className={`${frame} relative py-20 md:py-28`}>
       <p
         aria-hidden
-        className="pointer-events-none absolute top-4 right-0 font-serif text-[24vw] leading-none text-ink/[0.045] italic select-none"
+        className="pointer-events-none absolute top-4 right-0 font-serif text-[24vw] leading-none text-signal/[0.07] italic select-none"
       >
-        06
+        04
       </p>
       <div className="grid items-start gap-12 lg:grid-cols-12">
         <div className="lg:col-span-6">
           <Reveal>
-            <Kicker n="06">Write</Kicker>
-            <h2 className="mt-4 font-serif text-[clamp(3.3rem,7vw,6rem)] leading-[0.88] tracking-[-0.05em]">
-              If the puzzle
+            <Kicker n="04">Write</Kicker>
+            <h2 className="mt-3 font-serif text-[clamp(2.6rem,5vw,4.2rem)] leading-[0.95] tracking-[-0.04em]">
+              If you want to
               <br />
-              is interesting,
+              build something,
               <br />
               <span className="text-signal italic">write.</span>
             </h2>
             <p className="mt-6 max-w-md text-lg leading-relaxed">
-              A role, a lab, a product, a hello. I read what arrives. The
-              interesting ones get an answer.
+              A role, a team, a product, a hello. I read what arrives.
             </p>
             <button
               type="button"

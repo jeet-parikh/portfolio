@@ -36,14 +36,14 @@ export function Masthead() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-rule bg-paper">
       <div className="flex h-14 items-center justify-between gap-4 px-5 sm:px-8 lg:pr-14 lg:pl-24">
         <a
-          href="#opening"
+          href="#who"
           data-cursor="go"
           className="font-mono text-[11px] tracking-[0.22em] uppercase"
         >
           Jeet Parikh
         </a>
         <p className="hidden font-mono text-[11px] tracking-[0.18em] text-muted uppercase md:block">
-          Issue 01 — Make it answer back
+          Jeet Parikh — EECS, Yale
         </p>
         <div className="flex items-center gap-4 sm:gap-5">
           <p

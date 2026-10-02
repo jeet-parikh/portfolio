@@ -21,7 +21,7 @@ const PressContext = createContext<{
 const ScrollContext = createContext<{
   active: SectionId;
   progress: number;
-}>({ active: "opening", progress: 0 });
+}>({ active: "who", progress: 0 });
 
 export function usePress() {
   const value = useContext(PressContext);
@@ -38,7 +38,7 @@ export function useScrollSpy() {
 export function Providers({ children }: { children: ReactNode }) {
   const [press, setPress] = useState<Press>("day");
   const [ready, setReady] = useState(false);
-  const [active, setActive] = useState<SectionId>("opening");
+  const [active, setActive] = useState<SectionId>("who");
   const [progress, setProgress] = useState(0);
 
   useLayoutEffect(() => {

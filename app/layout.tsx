@@ -35,9 +35,9 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jeet Parikh — Make it answer back",
+  title: "Jeet Parikh — EECS, Yale",
   description:
-    "Jeet Parikh is a computer science student at Yale. He builds systems for plants, patients, pipelines, and a campus full of people — and he still owes it to a backyard of tomatoes.",
+    "Jeet Parikh studies electrical engineering and computer science at Yale. Software engineer intern at Databricks, president of the Yale Computer Society, and founder of two iOS apps.",
   keywords: [
     "Jeet Parikh",
     "Yale",
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Jeet Parikh" }],
   creator: "Jeet Parikh",
   openGraph: {
-    title: "Jeet Parikh — Make it answer back",
+    title: "Jeet Parikh — EECS, Yale",
     description:
-      "A single-scroll portfolio. Computer science at Yale, told like a paper trail.",
+      "Who Jeet is, and the work: Databricks, Yale Computer Society, Bloomberg, and the apps he shipped.",
     type: "website",
     locale: "en_US",
     siteName: "Jeet Parikh",
@@ -68,9 +68,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jeet Parikh — Make it answer back",
+    title: "Jeet Parikh — EECS, Yale",
     description:
-      "Computer science at Yale. Systems for plants, patients, pipelines, and a campus.",
+      "EECS at Yale. Databricks, Yale Computer Society, Bloomberg, and two iOS apps.",
     images: ["/home/headshot.JPG"],
     creator: "@jeetparikh",
   },
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f3ecdf",
+  themeColor: "#f3f6fb",
 };
 
 export default function RootLayout({
@@ -102,7 +102,7 @@ export default function RootLayout({
           }}
         />
         <a
-          href="#opening"
+          href="#who"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[95] focus:bg-ink focus:px-3 focus:py-2 focus:text-paper"
         >
           Skip to content

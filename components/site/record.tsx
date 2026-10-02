@@ -1,11 +1,10 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { type KeyboardEvent, useEffect, useState } from "react";
 import { type Experience, experience } from "@/data/experience";
 import { SELECT_RECORD } from "@/lib/open-record";
 import { cn } from "@/lib/utils";
-import { Signals } from "./signals";
 import { frame, Kicker, Reveal } from "./ui";
 
 function RoleBody({ exp }: { exp: Experience }) {
@@ -58,6 +57,7 @@ function RoleBody({ exp }: { exp: Experience }) {
 }
 
 export function Record() {
+  const reduce = useReducedMotion();
   const [selected, setSelected] = useState(experience[0]?.id ?? "");
   const current =
     experience.find((item) => item.id === selected) ?? experience[0];
@@ -95,29 +95,25 @@ export function Record() {
   };
 
   return (
-    <section id="record" className={`${frame} relative py-20 md:py-28`}>
+    <section id="record" className={`${frame} relative py-16 md:py-20`}>
       <p
         aria-hidden
-        className="pointer-events-none absolute top-6 right-0 font-serif text-[24vw] leading-none text-ink/[0.045] italic select-none"
+        className="pointer-events-none absolute top-6 right-0 font-serif text-[22vw] leading-none text-signal/[0.07] italic select-none"
       >
-        04
+        03
       </p>
       <Reveal>
-        <Kicker n="04">Record</Kicker>
-        <h2 className="mt-4 max-w-4xl font-serif text-[clamp(3rem,6.4vw,5.6rem)] leading-[0.92] tracking-[-0.045em]">
-          The paper trail.
+        <Kicker n="03">Record</Kicker>
+        <h2 className="mt-3 max-w-3xl font-serif text-[clamp(2.6rem,5vw,4.2rem)] leading-[0.95] tracking-[-0.04em]">
+          Where I&apos;ve worked.
         </h2>
-        <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted">
-          Four numbers, then the jobs behind them. Pick a line. Arrow keys work
-          once you are in the list.
+        <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted">
+          The roles worth knowing. Pick a line. Arrow keys work once you are in
+          the list.
         </p>
       </Reveal>
 
-      <div className="mt-12">
-        <Signals />
-      </div>
-
-      <div className="mt-12 grid gap-10 lg:grid-cols-12">
+      <div className="mt-10 grid gap-10 lg:grid-cols-12">
         <div
           className="lg:col-span-5"
           role="listbox"
@@ -127,7 +123,18 @@ export function Record() {
           {experience.map((exp, index) => {
             const on = exp.id === selected;
             return (
-              <div key={exp.id} className="border-t border-rule last:border-b">
+              <motion.div
+                key={exp.id}
+                className="border-t border-rule last:border-b"
+                initial={reduce ? false : { opacity: 0, x: -18 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{
+                  duration: 0.55,
+                  delay: reduce ? 0 : index * 0.06,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+              >
                 <button
                   id={`role-${exp.id}`}
                   type="button"
@@ -165,7 +172,7 @@ export function Record() {
                     <RoleBody exp={exp} />
                   </div>
                 ) : null}
-              </div>
+              </motion.div>
             );
           })}
         </div>

@@ -15,23 +15,23 @@
 }
 
 :root {
-  --paper: #f3ecdf;
-  --ink: #1c1612;
-  --signal: #c43122;
-  --muted: #5c534a;
-  --mark: #ffe56a;
-  --sheet: #faf6ee;
-  --rule: color-mix(in srgb, var(--ink) 16%, transparent);
+  --paper: #f3f6fb;
+  --ink: #162033;
+  --signal: #1e4fd7;
+  --muted: #5c6b82;
+  --mark: #d5e3ff;
+  --sheet: #f8fafd;
+  --rule: color-mix(in srgb, var(--ink) 14%, transparent);
   color-scheme: light;
 }
 
 html[data-press="night"] {
-  --paper: #0e0d0b;
-  --ink: #f3ecdf;
-  --signal: #ff6b54;
-  --muted: #b7aea2;
-  --mark: #ffe56a;
-  --sheet: #191714;
+  --paper: #0d1424;
+  --ink: #e7eef8;
+  --signal: #8eb0ff;
+  --muted: #a9b6cb;
+  --mark: #c5d7ff;
+  --sheet: #141c2e;
   color-scheme: dark;
 }
 
@@ -46,7 +46,12 @@ html[data-press="night"] {
   }
 
   body {
-    background: var(--paper);
+    background:
+      radial-gradient(
+        900px 420px at 100% -8%,
+        color-mix(in srgb, var(--signal) 14%, transparent),
+        transparent 70%
+      ), var(--paper);
     color: var(--ink);
     font-family: var(--font-sans);
     text-rendering: optimizeLegibility;

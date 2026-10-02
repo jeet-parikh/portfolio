@@ -40,6 +40,42 @@ export function CropMarks() {
   );
 }
 
+export function Wipe({
+  children,
+  className,
+  from = "left",
+  plated = false,
+}: {
+  children: ReactNode;
+  className?: string;
+  from?: "left" | "right";
+  plated?: boolean;
+}) {
+  const reduce = useReducedMotion();
+  const hidden =
+    from === "left" ? "inset(0% 100% 0% 0%)" : "inset(0% 0% 0% 100%)";
+  return (
+    <motion.div
+      data-plate={plated ? "" : undefined}
+      className={className}
+      initial="hidden"
+      whileInView="shown"
+      viewport={{ once: true, margin: "-8%" }}
+    >
+      <motion.div
+        className="h-full"
+        variants={{
+          hidden: { clipPath: reduce ? "inset(0% 0% 0% 0%)" : hidden },
+          shown: { clipPath: "inset(0% 0% 0% 0%)" },
+        }}
+        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+      >
+        {children}
+      </motion.div>
+    </motion.div>
+  );
+}
+
 export function Reveal({
   children,
   className,

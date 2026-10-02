@@ -1,13 +1,11 @@
 const items = [
-  "tomatoes",
-  "grandfather",
-  "pipelines",
-  "patients",
-  "calendars",
-  "papers",
-  "puzzles",
-  "agents",
+  "databricks",
   "yale",
+  "bloomberg",
+  "ymeets",
+  "plantvision",
+  "kare",
+  "deepdoc",
   "irvine",
 ];
 

@@ -8,7 +8,7 @@ export function Spine() {
         className="font-mono text-[10px] tracking-[0.32em] text-muted uppercase"
         style={{ writingMode: "vertical-rl" }}
       >
-        Jeet Parikh — EECS, Yale — Issue 01
+        Jeet Parikh — EECS, Yale — Class of 2028
       </p>
     </div>
   );

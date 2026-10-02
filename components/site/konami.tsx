@@ -92,7 +92,7 @@ export function Konami() {
               You found the margin.
             </span>
             <span className="mt-4 block font-serif text-2xl text-mark italic">
-              The fourth batch of tomatoes never stood a chance.
+              Class of 2028. Still building.
             </span>
           </span>
         </motion.button>

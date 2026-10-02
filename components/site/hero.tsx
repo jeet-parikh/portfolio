@@ -1,111 +1,122 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import Image from "next/image";
-import type { ReactNode } from "react";
-import { CropMarks, frame, Kicker } from "./ui";
+import { useRef } from "react";
+import { CropMarks, frame, Kicker, Reveal, Wipe } from "./ui";
 
-function Line({ children, delay }: { children: ReactNode; delay: number }) {
-  const reduce = useReducedMotion();
-  return (
-    <span className="block overflow-hidden py-[0.06em] -my-[0.06em]">
-      <motion.span
-        className="block"
-        initial={reduce ? false : { y: "110%" }}
-        animate={{ y: "0%" }}
-        transition={{ duration: 0.95, delay, ease: [0.16, 1, 0.3, 1] }}
-      >
-        {children}
-      </motion.span>
-    </span>
-  );
-}
+const facts = [
+  { label: "Now", value: "Databricks, Mountain View" },
+  { label: "Also", value: "President, Yale Computer Society" },
+  { label: "Study", value: "EECS · 3.97 · Class of 2028" },
+  { label: "From", value: "Irvine, and New Haven" },
+];
 
 export function Hero() {
+  const reduce = useReducedMotion();
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const photoY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -48]);
+  const markY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 72]);
+  const rule = useTransform(scrollYProgress, [0, 0.4], [0.15, 1]);
+
   return (
     <section
-      id="opening"
-      className={`${frame} relative flex flex-col pt-28 pb-10 lg:min-h-[100svh] lg:pt-24 lg:pb-8`}
+      id="who"
+      ref={ref}
+      className={`${frame} relative overflow-hidden pt-28 pb-14 lg:pt-32 lg:pb-20`}
     >
-      <p
+      <motion.p
         aria-hidden
-        className="pointer-events-none absolute top-16 right-0 font-serif text-[28vw] leading-none text-ink/[0.045] italic select-none"
+        style={{ y: markY }}
+        className="pointer-events-none absolute top-20 right-0 font-serif text-[22vw] leading-none text-signal/[0.07] italic select-none"
       >
         01
-      </p>
+      </motion.p>
 
-      <div className="relative grid gap-8 lg:flex-1 lg:content-center lg:grid-cols-12 lg:gap-x-8 lg:gap-y-10">
-        <div className="lg:col-span-8">
-          <Kicker n="01">Opening — New Haven / Irvine</Kicker>
-          <h1 className="mt-4 font-serif text-[clamp(4.4rem,12vw,8.4rem)] leading-[0.84] tracking-[-0.055em]">
-            <Line delay={0.05}>Make it</Line>
-            <Line delay={0.14}>
-              <span className="bg-mark px-[0.06em] text-[#1c1612] italic">
-                answer
-              </span>
-            </Line>
-            <Line delay={0.22}>
-              back<span className="text-signal">.</span>
-            </Line>
-          </h1>
+      <div className="relative grid items-start gap-8 lg:grid-cols-12 lg:gap-x-10 lg:gap-y-6">
+        <div className="lg:col-span-7">
+          <Reveal>
+            <Kicker n="01">Who</Kicker>
+            <h1 className="mt-4 font-serif text-[clamp(3.6rem,8vw,6.2rem)] leading-[0.9] tracking-[-0.045em]">
+              Jeet Parikh
+            </h1>
+            <p className="mt-4 max-w-md font-serif text-2xl text-signal italic md:text-3xl">
+              EECS at Yale. I build things people actually use.
+            </p>
+          </Reveal>
         </div>
 
-        <figure className="lg:col-span-4 lg:col-start-9 lg:row-span-2 lg:row-start-1 lg:self-center">
-          <div className="group/plate relative" data-plate>
+        <motion.figure
+          style={{ y: photoY }}
+          className="lg:col-span-5 lg:row-span-2"
+        >
+          <Wipe from="right" plated className="group/plate relative">
             <CropMarks />
-            <div className="relative h-[42vh] overflow-hidden border border-ink bg-sheet shadow-[8px_8px_0_0_var(--ink)] lg:aspect-[3/4] lg:h-auto">
+            <div className="relative h-[32vh] min-h-56 overflow-hidden border border-ink bg-sheet shadow-[8px_8px_0_0_var(--signal)] lg:h-auto lg:aspect-[3/4]">
               <Image
                 src="/home/headshot.JPG"
                 alt="Jeet Parikh, smiling with arms crossed in a stone colonnade"
                 fill
                 priority
-                sizes="(min-width: 1024px) 28vw, 90vw"
-                className="plate-photo object-cover object-[center_24%]"
+                sizes="(min-width: 1024px) 36vw, 92vw"
+                className="plate-photo object-cover object-[center_22%]"
               />
             </div>
-          </div>
+          </Wipe>
           <figcaption className="mt-3 font-mono text-[10px] tracking-[0.16em] text-muted uppercase">
-            fig. 00 — color returns if you look
+            fig. 00 — Jeet, New Haven
           </figcaption>
-        </figure>
+        </motion.figure>
 
-        <div className="max-w-xl lg:col-span-7">
-          <p className="text-lg leading-relaxed md:text-xl">
-            I study computer science at Yale. I taught myself to code during a
-            pandemic, first to save a backyard of tomatoes, then to help my
-            family look after my grandfather. The puzzles got larger. Pipelines,
-            patients, a campus full of builders. The question stayed the same.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+        <div className="lg:col-span-7">
+          <Reveal delay={0.08}>
+            <div className="max-w-xl space-y-4 text-lg leading-relaxed">
+              <p>
+                Right now I am a software engineer intern at Databricks, where I
+                built an agent that improves production data pipelines on its
+                own. Latency down 30%. Compute down 25%.
+              </p>
+              <p>
+                Before that: the Bloomberg Terminal, president of Yale&apos;s
+                largest CS club, and two iOS apps I taught myself to ship from
+                Irvine. I am still the person who stays with a problem because
+                it belongs to someone else.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.14}>
+            <motion.div
+              style={{ scaleX: rule }}
+              className="mt-8 h-px origin-left bg-signal"
+            />
+            <dl className="mt-5 grid gap-x-6 gap-y-4 sm:grid-cols-2">
+              {facts.map((fact) => (
+                <div key={fact.label}>
+                  <dt className="font-mono text-[10px] tracking-[0.18em] text-signal uppercase">
+                    {fact.label}
+                  </dt>
+                  <dd className="mt-1 text-base">{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
             <a
               href="#work"
               data-cursor="look"
-              className="inline-flex min-h-11 items-center gap-3 border border-ink px-5 py-3 font-mono text-[11px] tracking-[0.18em] uppercase transition-colors hover:bg-ink hover:text-paper"
+              className="mt-8 inline-flex min-h-11 items-center gap-3 border border-ink px-5 py-3 font-mono text-[11px] tracking-[0.18em] uppercase transition-colors hover:bg-signal hover:text-paper"
             >
-              See the work <span aria-hidden>↓</span>
+              What I&apos;ve built <span aria-hidden>↓</span>
             </a>
-            <a
-              href="#write"
-              data-cursor="write"
-              className="inline-flex min-h-11 items-center px-5 py-3 font-mono text-[11px] tracking-[0.18em] text-signal uppercase"
-            >
-              Write me
-            </a>
-          </div>
-          <dl className="mt-8 space-y-1 font-mono text-[11px] tracking-[0.16em] text-muted uppercase">
-            <div>EECS, Yale University</div>
-            <div>
-              <a
-                href="https://yalecomputersociety.org/"
-                target="_blank"
-                rel="noreferrer"
-                data-cursor="open"
-                className="underline decoration-rule underline-offset-4 hover:text-ink hover:decoration-ink"
-              >
-                President, Yale Computer Society
-              </a>
-            </div>
-          </dl>
+          </Reveal>
         </div>
       </div>
     </section>
