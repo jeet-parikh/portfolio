@@ -20,12 +20,11 @@ export const projects: Project[] = [
   {
     id: "deepdoc",
     title: "DeepDoc",
-    description:
-      "A full-stack RAG platform for querying PDF knowledge bases with natural language",
+    description: "Ask questions about a stack of PDFs.",
     longDescription:
-      "Built a comprehensive Retrieval-Augmented Generation (RAG) platform that enables users to query large PDF knowledge bases using natural language. The system leverages vector search with FAISS and LangChain orchestration to provide contextually grounded, relevant answers.",
-    lede: "Ask a stack of PDFs a question. Vector search with FAISS and LangChain orchestration, so the answer stays tied to the page it came from.",
-    caption: "fig. 04 — the library, queried",
+      "Upload PDFs and ask questions in normal language. Search uses FAISS and LangChain, and the answer comes from the pages themselves.",
+    lede: "Upload PDFs and ask questions in normal language. It searches them with FAISS and LangChain, and the answer comes from the pages themselves.",
+    caption: "fig. 04 — questions for a PDF",
     tags: ["Python", "FastAPI", "LangChain", "FAISS", "React", "Tailwind"],
     githubUrl: "https://github.com/jeet-parikh/DeepDoc",
     liveUrl: "https://deep-doc.vercel.app/",
@@ -35,12 +34,12 @@ export const projects: Project[] = [
   {
     id: "ymeets",
     title: "ymeets",
-    description: "A cleaner, faster way to schedule meetings on Yale's campus",
+    description: "Find a meeting time at Yale.",
     longDescription:
-      "Led product development for Yale's largest computer science club platform. Grew the site to 2,500 users while managing a 10-person developer team and shipping new features regularly.",
-    lede: "Yale's scheduling board. I led a ten-person team, shipped the features people asked for, and grew it to 2,500 users.",
-    caption: "fig. 03 — when everyone is free",
-    tags: ["React", "Node.js", "MongoDB", "Leadership", "Product"],
+      "A scheduling site for Yale. I led a 10-person team, shipped what people asked for, and grew it to 2,500 users.",
+    lede: "A way to find a meeting time at Yale. I led a 10-person team, shipped what people asked for, and grew it to 2,500 users.",
+    caption: "fig. 01 — finding a time",
+    tags: ["React", "TypeScript", "Firebase"],
     githubUrl: "https://github.com/YaleComputerSociety/ymeets",
     liveUrl: "https://ymeets.com",
     imageUrl: "/projects/ymeets-preview.png",
@@ -53,13 +52,12 @@ export const projects: Project[] = [
   {
     id: "plantvision",
     title: "PlantVision AI",
-    description:
-      "Computer-vision based app for plant disease detection and treatment",
+    description: "Take a photo of a leaf and get the disease.",
     longDescription:
-      "A computer vision-powered mobile application capable of identifying plant diseases from user-submitted leaf images with over 90% accuracy. Trained a CNN on 20,000+ images and deployed using CoreML for on-device inference and offline usability.",
-    lede: "Point a phone at a leaf and get the disease. A vision model trained on 20,000+ images, running on the device with CoreML, including offline.",
-    caption: "fig. 01 — one photo, a diagnosis",
-    tags: ["Swift", "TensorFlow", "CoreML", "Computer Vision", "iOS"],
+      "Take a photo of a leaf and it names the disease. Trained on 20,000+ images, then run on the phone with CoreML, including offline, at over 90% accuracy.",
+    lede: "Take a photo of a leaf and it names the disease. I trained the model on 20,000+ images. It runs on the phone with CoreML, offline, at over 90% accuracy.",
+    caption: "fig. 02 — a photo of a leaf",
+    tags: ["Swift", "Xcode", "TensorFlow", "CoreML", "CocoaPods"],
     liveUrl:
       "https://apps.apple.com/us/app/plantvision-ai-detect-disease/id1547100846",
     imageUrl: "/projects/plantvision-preview.png",
@@ -72,20 +70,17 @@ export const projects: Project[] = [
   {
     id: "kare",
     title: "Kare",
-    description: "Health data tracking app for elderly users",
+    description: "A health app for older adults.",
     longDescription:
-      "An intuitive health data tracking and sharing app designed to empower elderly users to take control of their health. Features secure two-factor authentication, push notifications, and encrypted data storage using Firebase and Cloud Firestore.",
-    lede: "A health record older adults can actually keep, and share with the people looking after them. Two-factor sign-in, reminders, encrypted storage. A hundred users, and growing.",
-    caption: "fig. 02 — shared with care",
-    tags: ["SwiftUI", "Firebase", "Cloud Firestore", "iOS", "2FA"],
+      "Older adults can log how they're doing and share it with family. Two-factor login, push notifications, and encrypted storage with Firebase and Cloud Firestore. 100+ users, and growing.",
+    lede: "A health app for older adults. They can log how they're doing and share it with family. Two-factor login, push notifications, and encrypted storage. 100+ users, and growing.",
+    caption: "fig. 03 — a health log",
+    tags: ["SwiftUI", "Xcode", "Firebase", "Cloud Firestore"],
     liveUrl:
       "https://apps.apple.com/us/app/kare-enabling-independence/id1660828940",
     imageUrl: "/projects/kare-preview.png",
     featured: false,
-    metrics: [
-      { label: "Users", value: "100+" },
-      { label: "Countries", value: "50+" },
-    ],
+    metrics: [{ label: "Users", value: "100+" }],
   },
 ];
 

@@ -21,12 +21,12 @@ export const experience: Experience[] = [
     endDate: "Present",
     current: true,
     aside:
-      "An agent that tunes production pipelines. Latency down 30%. Compute down 25%.",
+      "I built an agent that improves production data pipelines. Latency down 30%, compute down 25%.",
     description: [
-      "Built an AI agent that autonomously improves production data pipelines, using a custom harness, MCP tools, and orchestration",
-      "The optimization cut latency by 30% and compute costs by 25%, enough to commercialize at a lower price",
+      "I built an AI agent that improves production data pipelines on its own, using a custom harness, MCP tools, and orchestration.",
+      "It cut latency by 30% and compute costs by 25%, which made it possible to offer it at a lower price.",
     ],
-    tags: ["Agents", "MCP", "Data Pipelines", "Python"],
+    tags: ["MCP"],
   },
   {
     id: "yale-cs",
@@ -37,12 +37,12 @@ export const experience: Experience[] = [
     endDate: "Present",
     current: true,
     aside:
-      "Eight products. Twenty thousand people. A hundred students building them.",
+      "I lead Yale's largest CS club. 8 products, 20,000+ users, 100+ student developers.",
     description: [
-      "Leading Yale's largest CS club and the product vision for 8 software products with 20,000+ users and 100+ student developers",
-      "Team lead of ymeets.com. Grew the site to 2,500 users with a 10-person developer team",
+      "I lead Yale's largest CS club and the product work for 8 apps. They have 20,000+ users, and 100+ students build them.",
+      "I also lead ymeets. We grew it to 2,500 users with a 10-person team.",
     ],
-    tags: ["Leadership", "Product", "React", "Node.js"],
+    tags: [],
   },
   {
     id: "bloomberg",
@@ -52,12 +52,14 @@ export const experience: Experience[] = [
     startDate: "Jun 2025",
     endDate: "Aug 2025",
     current: false,
-    aside: "A hundred million financial records a day, live on the Terminal.",
+    aside:
+      "A Spark and Kafka pipeline. 100M+ financial records a day, on the Terminal.",
     description: [
-      "Engineered a Spark and Kafka pipeline that ingests 100M+ financial records daily",
-      "Shipped it to production on the Bloomberg Terminal, powering analytics for 300+ enterprise clients",
+      "I built a Spark and Kafka pipeline that takes in 100M+ financial records a day.",
+      "It's in production on the Bloomberg Terminal, for 300+ enterprise clients and internal teams.",
+      "I worked with teams in San Francisco and London on what clients needed, and on checking that the services fit together.",
     ],
-    tags: ["Apache Spark", "Kafka", "Python", "Production"],
+    tags: ["Apache Spark", "Kafka"],
   },
   {
     id: "ctrltrial",
@@ -67,12 +69,12 @@ export const experience: Experience[] = [
     startDate: "Oct 2024",
     endDate: "Jun 2025",
     current: false,
-    aside: "Oncology trial data, clustered so the trend is visible.",
+    aside: "I grouped clinical trial data so the trends were easier to see.",
     description: [
-      "Built an AI system using vector embeddings, NLP, and LLMs to extract and cluster unstructured clinical trial data",
-      "Shipped a trial-trend tool in React and Three.js on AWS, and tightened the way the data is read",
+      "I built a system that uses embeddings, NLP, and LLMs to pull unstructured clinical trial data from an API and group it.",
+      "I shipped an oncology trial trends tool in React and Three.js on AWS EC2, and cleaned up the charts and how people read them.",
     ],
-    tags: ["React", "Three.js", "NLP", "AWS"],
+    tags: ["React", "Three.js", "AWS"],
   },
   {
     id: "pariglo",
@@ -82,12 +84,13 @@ export const experience: Experience[] = [
     startDate: "Jun 2020",
     endDate: "Aug 2024",
     current: false,
-    aside: "Two apps. Ten thousand downloads. Fifty countries.",
+    aside:
+      "Two iOS apps, Kare and PlantVision AI. 10,000+ downloads in 50+ countries.",
     description: [
-      "Founded the company and shipped Kare and PlantVision AI, native iOS apps with 10,000+ downloads across 50+ countries",
-      "Taught myself Swift and Xcode. Added push notifications, two-factor sign-in, and on-device inference with CoreML",
+      "I started the company and shipped Kare and PlantVision AI. Together they have 10,000+ downloads in 50+ countries.",
+      "I taught myself Swift and Xcode. The apps have push notifications, two-factor login, and on-device models with CoreML.",
     ],
-    tags: ["iOS", "Swift", "CoreML", "Firebase"],
+    tags: ["Swift", "Xcode", "CoreML"],
   },
   {
     id: "utah-research",
@@ -98,11 +101,11 @@ export const experience: Experience[] = [
     endDate: "Jan 2024",
     current: false,
     aside:
-      "An open-source benchmarking suite, and a talk to 500 people at TMS.",
+      "An open-source Python package for materials discovery, and a talk at TMS 2023.",
     description: [
-      "Built an open-source Python package for benchmarking materials-discovery algorithms",
-      "Co-authored a manuscript and presented it to 500+ industry leaders at the TMS 2023 conference",
+      "I built an open-source Python package that benchmarks algorithms for discovering new materials.",
+      "I co-authored a paper and gave a talk to 500+ people in industry at the TMS 2023 conference.",
     ],
-    tags: ["Machine Learning", "Python", "Research"],
+    tags: ["Python"],
   },
 ];

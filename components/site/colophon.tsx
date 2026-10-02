@@ -37,7 +37,7 @@ export function Colophon() {
           <span className="text-signal italic">find me.</span>
         </h2>
         <p className="mt-6 max-w-md text-lg leading-relaxed">
-          A role, a team, a product, a hello.
+          A job, a project, or just to say hi.
         </p>
       </Reveal>
 

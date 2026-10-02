@@ -85,14 +85,11 @@ export function Konami() {
             />
           ))}
           <span className="relative max-w-xl text-center">
-            <span className="font-mono text-[11px] tracking-[0.22em] text-mark uppercase">
-              Margin note
-            </span>
             <span className="mt-4 block font-serif text-5xl leading-[0.95] md:text-7xl">
-              You found the margin.
+              You found it.
             </span>
             <span className="mt-4 block font-serif text-2xl text-mark italic">
-              Class of 2028. Still building.
+              Class of 2028.
             </span>
           </span>
         </motion.button>

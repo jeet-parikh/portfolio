@@ -42,16 +42,18 @@ function RoleBody({ exp }: { exp: Experience }) {
           </li>
         ))}
       </ul>
-      <ul className="mt-6 flex flex-wrap gap-2">
-        {exp.tags.map((tag) => (
-          <li
-            key={tag}
-            className="border border-rule px-2 py-1 font-mono text-[10px] tracking-[0.14em] uppercase"
-          >
-            {tag}
-          </li>
-        ))}
-      </ul>
+      {exp.tags.length > 0 ? (
+        <ul className="mt-6 flex flex-wrap gap-2">
+          {exp.tags.map((tag) => (
+            <li
+              key={tag}
+              className="border border-rule px-2 py-1 font-mono text-[10px] tracking-[0.14em] uppercase"
+            >
+              {tag}
+            </li>
+          ))}
+        </ul>
+      ) : null}
     </div>
   );
 }
@@ -108,8 +110,7 @@ export function Record() {
           Where I&apos;ve worked.
         </h2>
         <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted">
-          The roles worth knowing. Pick a line. Arrow keys work once you are in
-          the list.
+          Click a job to read it. Arrow keys work in the list.
         </p>
       </Reveal>
 

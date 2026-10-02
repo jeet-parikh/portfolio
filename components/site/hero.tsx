@@ -14,7 +14,7 @@ const facts = [
   { label: "Now", value: "Databricks, Mountain View" },
   { label: "Also", value: "President, Yale Computer Society" },
   { label: "Study", value: "EECS · 3.97 · Class of 2028" },
-  { label: "From", value: "Irvine, and New Haven" },
+  { label: "From", value: "Irvine, CA" },
 ];
 
 export function Hero() {
@@ -50,7 +50,7 @@ export function Hero() {
               Jeet Parikh
             </h1>
             <p className="mt-4 max-w-md font-serif text-2xl text-signal italic md:text-3xl">
-              EECS at Yale. I build things people actually use.
+              I study EECS at Yale.
             </p>
           </Reveal>
         </div>
@@ -81,15 +81,14 @@ export function Hero() {
           <Reveal delay={0.08}>
             <div className="max-w-xl space-y-4 text-lg leading-relaxed">
               <p>
-                Right now I am a software engineer intern at Databricks, where I
-                built an agent that improves production data pipelines on its
-                own. Latency down 30%. Compute down 25%.
+                I&apos;m a software engineer intern at Databricks. I built an
+                agent that improves production data pipelines on its own. It cut
+                latency by 30% and compute by 25%.
               </p>
               <p>
-                Before that: the Bloomberg Terminal, president of Yale&apos;s
-                largest CS club, and two iOS apps I taught myself to ship from
-                Irvine. I am still the person who stays with a problem because
-                it belongs to someone else.
+                I also lead Yale Computer Society. In 2025 I interned at
+                Bloomberg, and I shipped two iOS apps I taught myself to build
+                in Irvine.
               </p>
             </div>
           </Reveal>
