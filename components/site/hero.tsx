@@ -15,7 +15,6 @@ import { CropMarks, frame, Kicker, Plate, Reveal, Wipe } from "./ui";
 const asides = {
   sports: "I follow more than I play, and I get loud when it's close.",
   adventure: "Last-minute plans, and anything I haven't done yet.",
-  pictures: "I shoot what I'm standing in. The prints are further down.",
   traveling: "New places stick with me longer than the trip does.",
 } as const;
 
@@ -66,11 +65,8 @@ export function Hero() {
               Jeet Parikh
             </h1>
             <p className="mt-4 max-w-lg font-serif text-2xl leading-snug text-signal italic md:text-3xl">
-              I&apos;m a{" "}
-              <AsideWord id="sports" open={open} onPick={pick}>
-                sports fan
-              </AsideWord>
-              , and I&apos;m from Irvine.
+              I&apos;m a student at Yale studying Electrical Engineering &amp;
+              Computer Science.
             </p>
           </Reveal>
         </div>
@@ -103,23 +99,19 @@ export function Hero() {
           <Reveal delay={0.08}>
             <div className="max-w-xl space-y-4 text-lg leading-relaxed">
               <p>
-                I&apos;m a student at Yale, studying electrical engineering and
-                computer science.
-              </p>
-              <p>
-                I love{" "}
+                I&apos;m a huge{" "}
+                <AsideWord id="sports" open={open} onPick={pick}>
+                  sports fan
+                </AsideWord>
+                , love{" "}
+                <AsideWord id="traveling" open={open} onPick={pick}>
+                  traveling
+                </AsideWord>{" "}
+                and{" "}
                 <AsideWord id="adventure" open={open} onPick={pick}>
                   adventure
                 </AsideWord>
-                , taking{" "}
-                <AsideWord id="pictures" open={open} onPick={pick}>
-                  pictures
-                </AsideWord>
-                ,{" "}
-                <AsideWord id="traveling" open={open} onPick={pick}>
-                  traveling
-                </AsideWord>
-                , and Thai food. I also love building cool things for people.
+                , food, and building products for people.
               </p>
               <p
                 ref={asideRef}
