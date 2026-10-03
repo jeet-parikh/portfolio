@@ -151,11 +151,11 @@ export function Pictures() {
             role="dialog"
             aria-modal="true"
             aria-label={photo.place}
-            className="fixed inset-0 z-[60] flex items-center justify-center bg-paper/92 p-5 sm:p-10"
-            initial={reduce ? false : { opacity: 0 }}
+            className="fixed inset-0 z-[60] flex items-center justify-center bg-paper p-5 sm:p-10"
+            initial={false}
             animate={{ opacity: 1 }}
-            exit={reduce ? undefined : { opacity: 0 }}
-            transition={{ duration: 0.25 }}
+            exit={{ opacity: 1 }}
+            transition={{ duration: 0.18 }}
           >
             <button
               type="button"
@@ -163,7 +163,13 @@ export function Pictures() {
               className="absolute inset-0 cursor-default bg-transparent"
               onClick={() => setOpen(false)}
             />
-            <div className="relative z-10 w-full max-w-4xl">
+            <motion.div
+              className="relative z-10 w-full max-w-4xl"
+              initial={reduce ? false : { opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={reduce ? undefined : { opacity: 0 }}
+              transition={{ duration: 0.18 }}
+            >
               <div className="border border-ink bg-paper p-3 shadow-[10px_10px_0_0_var(--signal)] sm:p-5">
                 <div className="relative aspect-[3/2] overflow-hidden bg-sheet">
                   <PrintArt tone={photo.tone} />
@@ -203,7 +209,7 @@ export function Pictures() {
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         ) : null}
       </AnimatePresence>
