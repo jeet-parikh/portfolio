@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  AnimatePresence,
   motion,
   useReducedMotion,
   useScroll,
@@ -10,16 +9,10 @@ import {
 import Image from "next/image";
 import { type ReactNode, useRef, useState } from "react";
 import { publicSrc } from "@/lib/base-path";
+import { InterestPopup } from "./interest-popup";
 import { CropMarks, frame, Kicker, Plate, Reveal, Wipe } from "./ui";
 
-const asides = {
-  sports: "I follow more than I play, and I get loud when it's close.",
-  adventure: "Last-minute plans, and anything I haven't done yet.",
-  pictures: "I shoot what I'm standing in. The prints are further down.",
-  traveling: "New places stick with me longer than the trip does.",
-} as const;
-
-type AsideId = keyof typeof asides;
+type AsideId = "sports" | "traveling";
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -32,16 +25,8 @@ export function Hero() {
   const markY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 72]);
   const rule = useTransform(scrollYProgress, [0, 0.4], [0.15, 1]);
   const [open, setOpen] = useState<AsideId | null>(null);
-  const asideRef = useRef<HTMLParagraphElement>(null);
-
   function pick(id: AsideId) {
-    setOpen((current) => (current === id ? null : id));
-    requestAnimationFrame(() => {
-      asideRef.current?.scrollIntoView({
-        block: "nearest",
-        behavior: reduce ? "auto" : "smooth",
-      });
-    });
+    setOpen(id);
   }
 
   return (
@@ -66,11 +51,8 @@ export function Hero() {
               Jeet Parikh
             </h1>
             <p className="mt-4 max-w-lg font-serif text-2xl leading-snug text-signal italic md:text-3xl">
-              I&apos;m a{" "}
-              <AsideWord id="sports" open={open} onPick={pick}>
-                sports fan
-              </AsideWord>
-              , and I&apos;m from Irvine.
+              I&apos;m a student at Yale studying Electrical Engineering &amp;
+              Computer Science.
             </p>
           </Reveal>
         </div>
@@ -103,45 +85,21 @@ export function Hero() {
           <Reveal delay={0.08}>
             <div className="max-w-xl space-y-4 text-lg leading-relaxed">
               <p>
-                I&apos;m a student at Yale, studying electrical engineering and
-                computer science.
+                I&apos;m a huge{" "}
+                <AsideWord id="sports" open={open} onPick={pick}>
+                  sports fan
+                </AsideWord>
+                , love{" "}
+                <span className="whitespace-nowrap">
+                  <AsideWord id="traveling" open={open} onPick={pick}>
+                    traveling
+                  </AsideWord>{" "}
+                  and adventure
+                </span>
+                , food, and building cool products for people.
               </p>
-              <p>
-                I love{" "}
-                <AsideWord id="adventure" open={open} onPick={pick}>
-                  adventure
-                </AsideWord>
-                , taking{" "}
-                <AsideWord id="pictures" open={open} onPick={pick}>
-                  pictures
-                </AsideWord>
-                ,{" "}
-                <AsideWord id="traveling" open={open} onPick={pick}>
-                  traveling
-                </AsideWord>
-                , and Thai food. I also love building cool things for people.
-              </p>
-              <p
-                ref={asideRef}
-                aria-live="polite"
-                className="min-h-8 scroll-mb-16 font-serif text-lg text-signal italic"
-              >
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={open ?? "hint"}
-                    initial={reduce ? false : { opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={reduce ? undefined : { opacity: 0, y: -6 }}
-                    transition={{ duration: 0.22 }}
-                    className={
-                      open
-                        ? undefined
-                        : "font-mono text-[10px] tracking-[0.16em] text-muted uppercase not-italic"
-                    }
-                  >
-                    {open ? asides[open] : "Click a word"}
-                  </motion.span>
-                </AnimatePresence>
+              <p className="font-mono text-[10px] tracking-[0.16em] text-muted uppercase">
+                Click a word. There&apos;s more to the story.
               </p>
             </div>
           </Reveal>
@@ -161,6 +119,7 @@ export function Hero() {
           </Reveal>
         </div>
       </div>
+      {open && <InterestPopup kind={open} onClose={() => setOpen(null)} />}
     </section>
   );
 }
@@ -181,6 +140,7 @@ function AsideWord({
     <button
       type="button"
       aria-expanded={on}
+      aria-haspopup="dialog"
       data-cursor="look"
       onClick={() => onPick(id)}
       className="inline border-b border-current bg-transparent p-0 hover:bg-mark"

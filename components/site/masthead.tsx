@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { BrandLogo } from "@/components/brand-logo";
 import { sections } from "@/data/sections";
 import { cn } from "@/lib/utils";
 import { usePress, useScrollSpy } from "./providers";
@@ -79,10 +80,11 @@ export function Masthead() {
       <div className="flex h-14 items-center justify-between gap-4 px-5 sm:px-8 lg:pr-14 lg:pl-24">
         <a
           href="#who"
+          aria-label="Jeet Parikh — back to top"
           data-cursor="go"
-          className="font-mono text-[11px] tracking-[0.22em] uppercase"
+          className="flex items-center gap-3 font-mono text-[11px] tracking-[0.22em] uppercase"
         >
-          Jeet Parikh
+          <BrandLogo className="h-7 w-7" />
         </a>
         <div className="flex items-center gap-4 sm:gap-5">
           <p

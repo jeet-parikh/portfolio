@@ -189,3 +189,23 @@ html.cursor-on .cursor-ring {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* Keep the dialog backdrop consistent with the custom cursor. */
+@media (hover: hover) and (pointer: fine) {
+  html.cursor-on .interest-dialog::backdrop {
+    cursor: none;
+  }
+}
+
+html.cursor-on .interest-dialog .travel-map,
+html.cursor-on .interest-dialog .travel-map * {
+  cursor: grab;
+}
+html.cursor-on .interest-dialog .travel-map.is-dragging,
+html.cursor-on .interest-dialog .travel-map.is-dragging * {
+  cursor: grabbing;
+}
+html:has(.travel-map:hover) .cursor-dot,
+html:has(.travel-map:hover) .cursor-ring {
+  display: none;
+}

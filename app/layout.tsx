@@ -75,6 +75,16 @@ export const metadata: Metadata = {
     images: [`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/home/headshot.JPG`],
     creator: "@jeetparikh",
   },
+  icons: {
+    icon: [
+      {
+        url: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/icon.svg`,
+        type: "image/svg+xml",
+      },
+    ],
+    shortcut: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/icon.svg`,
+    apple: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/apple-icon.png`,
+  },
 };
 
 export const viewport: Viewport = {

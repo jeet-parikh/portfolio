@@ -1,5 +1,6 @@
 "use client";
 
+import { BrandLogo } from "@/components/brand-logo";
 import { frame, Kicker, Reveal } from "./ui";
 
 const links = [
@@ -59,7 +60,15 @@ export function Colophon() {
       <div className="mt-8 flex flex-col gap-3 font-mono text-[10px] tracking-[0.16em] text-muted uppercase sm:flex-row sm:items-end sm:justify-between">
         <p>Instrument Serif · Instrument Sans · IBM Plex Mono</p>
         <p>New Haven / Irvine</p>
-        <p>Issue 01 · {year} · © Jeet Parikh</p>
+        <a
+          href="#who"
+          data-cursor="go"
+          aria-label="Jeet Parikh — back to top"
+          className="flex items-center gap-3"
+        >
+          <BrandLogo className="h-9 w-9" />
+          <span>Issue 01 · {year} · © Jeet Parikh</span>
+        </a>
       </div>
       <p className="mt-4 font-mono text-[10px] tracking-[0.18em] text-muted uppercase">
         The Konami code still does something.
