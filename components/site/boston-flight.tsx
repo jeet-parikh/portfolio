@@ -22,7 +22,7 @@ const teams = {
     accent: "#c8aa65",
     sky: "#092b22",
     venue: "THE GARDEN",
-    logo: "/sports/celtics.svg",
+    logo: "/sports/celtics.png",
   },
   patriots: {
     name: "New England Patriots",
@@ -195,39 +195,6 @@ export function BostonFlight() {
   }, [phase, paused, skin, team]);
   return (
     <div>
-      <div className="mb-4 grid grid-cols-2 gap-3">
-        {(Object.keys(teams) as Team[]).map((t) => (
-          <button
-            key={t}
-            type="button"
-            aria-pressed={team === t}
-            disabled={phase === "playing"}
-            onClick={() => {
-              setTeam(t);
-              flight.current = freshFlight();
-              setScore(0);
-              setPhase("ready");
-            }}
-            className={`flex items-center gap-3 border p-3 text-left transition-colors disabled:opacity-50 ${team === t ? "border-signal bg-signal/10" : "border-rule hover:border-ink"}`}
-          >
-            <Image
-              src={publicSrc(teams[t].logo)}
-              alt=""
-              width={48}
-              height={48}
-              className="h-12 w-12 object-contain"
-            />
-            <span>
-              <span className="block text-sm font-semibold">
-                {teams[t].name}
-              </span>
-              <span className="font-mono text-[9px] text-muted uppercase">
-                {team === t ? "Your starting lineup" : "Choose your side"}
-              </span>
-            </span>
-          </button>
-        ))}
-      </div>
       <div className="mb-3 flex items-center justify-between gap-2 font-mono text-xs">
         <span>
           Score {String(score).padStart(2, "0")}{" "}
@@ -289,7 +256,7 @@ export function BostonFlight() {
             <p className="font-mono text-[10px] tracking-[.25em] uppercase">
               {skin.venue} / Boston Flight
             </p>
-            <h3 className="mt-2 font-serif text-5xl">
+            <h3 className="mt-2 font-serif text-3xl sm:text-5xl">
               {paused
                 ? "Timeout."
                 : phase === "over"
@@ -301,10 +268,41 @@ export function BostonFlight() {
                 ? `${score} gates cleared. One more run?`
                 : "Fly your team's colors through the stadium gates. Tap to rise. Keep the streak alive."}
             </p>
+            {!paused && (
+              <fieldset className="mt-4 flex gap-3">
+                <legend className="sr-only">Choose your team</legend>
+                {(Object.keys(teams) as Team[]).map((t) => (
+                  <button
+                    key={t}
+                    type="button"
+                    aria-label={`Play as ${teams[t].name}`}
+                    aria-pressed={team === t}
+                    onClick={() => {
+                      setTeam(t);
+                      flight.current = freshFlight();
+                      setScore(0);
+                      setPhase("ready");
+                    }}
+                    className={`flex flex-col items-center gap-1 border px-4 py-2 transition-colors ${team === t ? "border-white bg-white/20" : "border-white/30 hover:bg-white/10"}`}
+                  >
+                    <Image
+                      src={publicSrc(teams[t].logo)}
+                      alt=""
+                      width={44}
+                      height={44}
+                      className="h-11 w-11 object-contain"
+                    />
+                    <span className="font-mono text-[9px] uppercase">
+                      {teams[t].short}
+                    </span>
+                  </button>
+                ))}
+              </fieldset>
+            )}
             <button
               type="button"
               onClick={jump}
-              className="mt-5 border border-white bg-white px-5 py-3 font-mono text-xs text-black uppercase"
+              className="mt-3 border border-white bg-white px-5 py-3 font-mono text-xs text-black uppercase"
             >
               {paused
                 ? "Resume flight"
