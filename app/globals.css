@@ -190,11 +190,9 @@ html.cursor-on .cursor-ring {
   display: none;
 }
 
-/* Native dialogs render above the custom cursor's layer. */
-html.cursor-on .interest-dialog,
-html.cursor-on .interest-dialog * {
-  cursor: auto;
-}
-html.cursor-on .interest-dialog button {
-  cursor: pointer;
+/* Keep the dialog backdrop consistent with the custom cursor. */
+@media (hover: hover) and (pointer: fine) {
+  html.cursor-on .interest-dialog::backdrop {
+    cursor: none;
+  }
 }

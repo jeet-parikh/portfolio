@@ -18,8 +18,21 @@ export function InterestPopup({
     const previousFocus = document.activeElement as HTMLElement | null;
     const overflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    // Native dialogs occupy the browser's top layer, above any z-index.
+    // Move the existing cursor into that layer while this dialog is open.
+    const cursorNodes = Array.from(
+      document.querySelectorAll<HTMLElement>(".cursor-dot, .cursor-ring"),
+    ).map((node) => {
+      const marker = document.createComment("cursor position");
+      node.before(marker);
+      dialog.current?.append(node);
+      return { node, marker };
+    });
     dialog.current?.showModal();
     return () => {
+      for (const { node, marker } of cursorNodes) {
+        marker.replaceWith(node);
+      }
       document.body.style.overflow = overflow;
       previousFocus?.focus({ preventScroll: true });
     };
