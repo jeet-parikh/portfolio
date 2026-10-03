@@ -9,7 +9,7 @@ import {
 import Image from "next/image";
 import { useRef } from "react";
 import { publicSrc } from "@/lib/base-path";
-import { PadThai, TravelStamp } from "./play";
+import { TravelStamp } from "./play";
 import { CropMarks, frame, Kicker, Plate, Reveal, Wipe } from "./ui";
 
 export function Hero() {
@@ -83,7 +83,7 @@ export function Hero() {
                 computer science.
               </p>
               <p>
-                I love adventure, taking pictures, traveling, and <PadThai />. I
+                I love adventure, taking pictures, traveling, and Thai food. I
                 also love building cool things for people.
               </p>
             </div>
