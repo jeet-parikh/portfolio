@@ -100,7 +100,7 @@ export function PadThai() {
       >
         Thai food
       </button>
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {heat ? (
           <motion.span
             key={heat.name}
