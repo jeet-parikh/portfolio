@@ -7,6 +7,7 @@ export type TravelPlace = {
 };
 
 export const visitedCountries = [
+  "United States",
   "Australia",
   "Bahamas",
   "Canada",
