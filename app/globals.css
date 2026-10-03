@@ -85,23 +85,6 @@ html[data-press="night"] {
   }
 }
 
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee {
-  animation: marquee 42s linear infinite;
-}
-
-.marquee:hover .animate-marquee {
-  animation-play-state: paused;
-}
-
 .cursor-dot,
 .cursor-ring {
   position: fixed;

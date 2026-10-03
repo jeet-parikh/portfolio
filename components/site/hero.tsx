@@ -9,6 +9,7 @@ import {
 import Image from "next/image";
 import { useRef } from "react";
 import { publicSrc } from "@/lib/base-path";
+import { PadThai, TravelStamp } from "./play";
 import { CropMarks, frame, Kicker, Plate, Reveal, Wipe } from "./ui";
 
 export function Hero() {
@@ -53,19 +54,22 @@ export function Hero() {
           style={{ y: photoY }}
           className="lg:col-span-5 lg:row-span-2"
         >
-          <Wipe from="right" className="relative">
-            <CropMarks />
-            <Plate className="relative h-[32vh] min-h-56 overflow-hidden border border-ink bg-sheet lg:h-auto lg:aspect-[3/4]">
-              <Image
-                src={publicSrc("/home/headshot.JPG")}
-                alt="Jeet Parikh smiling in a black blazer and white shirt, in a stone colonnade"
-                fill
-                priority
-                sizes="(min-width: 1024px) 36vw, 92vw"
-                className="plate-photo object-cover object-[center_42%]"
-              />
-            </Plate>
-          </Wipe>
+          <div className="relative">
+            <Wipe from="right" className="relative">
+              <CropMarks />
+              <Plate className="relative h-[32vh] min-h-56 overflow-hidden border border-ink bg-sheet lg:h-auto lg:aspect-[3/4]">
+                <Image
+                  src={publicSrc("/home/headshot.JPG")}
+                  alt="Jeet Parikh smiling in a black blazer and white shirt, in a stone colonnade"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 36vw, 92vw"
+                  className="plate-photo object-cover object-[center_42%]"
+                />
+              </Plate>
+            </Wipe>
+            <TravelStamp />
+          </div>
           <figcaption className="mt-3 font-mono text-[10px] tracking-[0.16em] text-muted uppercase">
             fig. 00 — Jeet, New Haven
           </figcaption>
@@ -79,7 +83,7 @@ export function Hero() {
                 computer science.
               </p>
               <p>
-                I love adventure, taking pictures, traveling, and Thai food. I
+                I love adventure, taking pictures, traveling, and <PadThai />. I
                 also love building cool things for people.
               </p>
             </div>
