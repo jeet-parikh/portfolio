@@ -1,12 +1,13 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { Moon, Sun } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { BrandLogo } from "@/components/brand-logo";
+import { Button } from "@/components/ui/button";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -38,8 +39,13 @@ export function Navigation() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="text-xl font-bold text-foreground">
-            Jeet Parikh
+          <Link
+            href="/"
+            className="flex items-center gap-3 text-xl font-bold text-foreground"
+            aria-label="Jeet Parikh — home"
+          >
+            <BrandLogo />
+            <span>Jeet Parikh</span>
           </Link>
 
           {/* Navigation Links */}

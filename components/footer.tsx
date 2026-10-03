@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
+import { BrandLogo } from "@/components/brand-logo";
 
 const socialLinks = [
   {
@@ -38,8 +39,13 @@ export function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
           {/* Copyright */}
-          <div className="text-sm text-muted-foreground">
-            © 2024 Jeet Parikh. All rights reserved.
+          <div className="flex items-center gap-3 text-sm text-muted-foreground">
+            <Link href="/" aria-label="Jeet Parikh — home">
+              <BrandLogo className="h-10 w-10" />
+            </Link>
+            <span>
+              © {new Date().getFullYear()} Jeet Parikh. All rights reserved.
+            </span>
           </div>
 
           {/* Social Links */}
