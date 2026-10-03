@@ -189,3 +189,12 @@ html.cursor-on .cursor-ring {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* Native dialogs render above the custom cursor's layer. */
+html.cursor-on .interest-dialog,
+html.cursor-on .interest-dialog * {
+  cursor: auto;
+}
+html.cursor-on .interest-dialog button {
+  cursor: pointer;
+}
