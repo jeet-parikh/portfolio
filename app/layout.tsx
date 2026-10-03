@@ -1,113 +1,121 @@
-import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import {
+  IBM_Plex_Mono,
+  Instrument_Sans,
+  Instrument_Serif,
+} from "next/font/google";
+import type { ReactNode } from "react";
+import { Cursor } from "@/components/site/cursor";
+import { Konami } from "@/components/site/konami";
+import { Masthead } from "@/components/site/masthead";
+import { Providers } from "@/components/site/providers";
+import { Rail } from "@/components/site/rail";
+import { Spine } from "@/components/site/spine";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Navigation } from "@/components/navigation";
-import { Footer } from "@/components/footer";
-import { ScrollProgress } from "@/components/scroll-progress";
-import { EasterEgg } from "@/components/easter-egg";
 
-const inter = Inter({
-  variable: "--font-inter",
+const sans = Instrument_Sans({
   subsets: ["latin"],
+  variable: "--font-instrument-sans",
   display: "swap",
 });
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const serif = Instrument_Serif({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
+  display: "swap",
+});
+
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Jeet Parikh - Software Engineer & AI Researcher",
+  metadataBase: new URL("https://jeet-parikh.github.io"),
+  title: "Jeet Parikh — EECS, Yale",
   description:
-    "Computer Science student at Yale University with experience in AI, data engineering, and full-stack development. Building the future with code.",
+    "Jeet Parikh studies electrical engineering and computer science at Yale. Software engineer intern at Databricks, president of the Yale Computer Society, and founder of two iOS apps.",
   keywords: [
     "Jeet Parikh",
+    "Yale",
+    "EECS",
     "Software Engineer",
-    "AI Researcher",
     "Machine Learning",
-    "Data Science",
-    "Yale University",
-    "Computer Science",
-    "Full Stack Developer",
-    "iOS Developer",
-    "Data Engineering",
-    "Bloomberg",
-    "Healthcare AI",
+    "Yale Computer Society",
+    "PlantVision",
+    "Kare",
+    "ymeets",
+    "DeepDoc",
   ],
   authors: [{ name: "Jeet Parikh" }],
   creator: "Jeet Parikh",
-  publisher: "Jeet Parikh",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
   openGraph: {
-    title: "Jeet Parikh - Software Engineer & AI Researcher",
+    title: "Jeet Parikh — EECS, Yale",
     description:
-      "Computer Science student at Yale University with experience in AI, data engineering, and full-stack development. Building the future with code.",
+      "Who Jeet is, and the work: Databricks, Yale Computer Society, Bloomberg, and the apps he shipped.",
     type: "website",
     locale: "en_US",
-    siteName: "Jeet Parikh Portfolio",
+    siteName: "Jeet Parikh",
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Jeet Parikh - Software Engineer & AI Researcher",
+        url: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/home/headshot.JPG`,
+        alt: "Jeet Parikh",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jeet Parikh - Software Engineer & AI Researcher",
+    title: "Jeet Parikh — EECS, Yale",
     description:
-      "Computer Science student at Yale University with experience in AI, data engineering, and full-stack development.",
-    images: ["/og-image.png"],
+      "EECS at Yale. Databricks, Yale Computer Society, Bloomberg, and two iOS apps.",
+    images: [`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/home/headshot.JPG`],
     creator: "@jeetparikh",
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#f3f6fb",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${poppins.variable} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${sans.variable} ${serif.variable} ${mono.variable}`}
+    >
+      <body className="antialiased">
+        <script
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: static theme bootstrap, no user input
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(localStorage.getItem('jeet-press')==='night')document.documentElement.dataset.press='night'}catch(e){}",
+          }}
+        />
+        <a
+          href="#who"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[95] focus:bg-ink focus:px-3 focus:py-2 focus:text-paper"
         >
-          <ScrollProgress />
-          <Navigation />
-          <main className="pt-16">{children}</main>
-          <Footer />
-          <EasterEgg />
-        </ThemeProvider>
+          Skip to content
+        </a>
+        <Providers>
+          <Cursor />
+          <Masthead />
+          <Rail />
+          <Spine />
+          {children}
+          <Konami />
+        </Providers>
       </body>
     </html>
   );

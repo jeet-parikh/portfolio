@@ -29,8 +29,10 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## GitHub Pages
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The site is a static export. Pushes to `main` publish it with GitHub Actions.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+In the repo, open Settings → Pages and set Source to GitHub Actions. The site is then at [https://jeet-parikh.github.io/portfolio/](https://jeet-parikh.github.io/portfolio/).
+
+A custom domain needs an empty `NEXT_PUBLIC_BASE_PATH` in `.github/workflows/pages.yml`, because the `/portfolio` prefix is only for the project site URL.

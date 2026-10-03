@@ -1,28 +1,14 @@
 import type { NextConfig } from "next";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 const nextConfig: NextConfig = {
+  output: "export",
+  trailingSlash: true,
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn.jsdelivr.net",
-        port: "",
-        pathname: "/gh/devicons/devicon@latest/icons/**",
-      },
-      {
-        protocol: "https",
-        hostname: "langchain.com",
-        port: "",
-        pathname: "/img/**",
-      },
-      {
-        protocol: "https",
-        hostname: "developer.apple.com",
-        port: "",
-        pathname: "/assets/elements/icons/**",
-      },
-    ],
+    unoptimized: true,
   },
+  ...(basePath ? { basePath, assetPrefix: basePath } : {}),
 };
 
 export default nextConfig;

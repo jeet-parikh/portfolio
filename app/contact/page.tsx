@@ -1,22 +1,17 @@
-import { ContactForm } from "@/components/contact-form";
+"use client";
 
-export default function ContactPage() {
+import { useEffect } from "react";
+
+export default function ContactRedirect() {
+  useEffect(() => {
+    window.location.replace(
+      `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/#reach`,
+    );
+  }, []);
+
   return (
-    <div className="min-h-screen py-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-            Get In Touch
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            I'm always interested in new opportunities and collaborations.
-            Whether you have a project in mind or just want to chat about
-            technology, feel free to reach out!
-          </p>
-        </div>
-
-        <ContactForm />
-      </div>
-    </div>
+    <main className="grid min-h-[60vh] place-items-center px-6 pt-28 font-mono text-[11px] tracking-[0.18em] uppercase">
+      <a href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/#reach`}>Continue</a>
+    </main>
   );
 }
