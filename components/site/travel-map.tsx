@@ -197,7 +197,7 @@ export function TravelMap() {
         >
           <Image
             src={publicSrc("/maps/visited-world.svg")}
-            alt={`World map highlighting ${visitedCountries.length} visited countries, with Hawaii marked separately`}
+            alt={`World map highlighting ${visitedCountries.length} visited countries, with US destinations marked individually`}
             fill
             draggable={false}
             className="pointer-events-none select-none"
@@ -243,33 +243,6 @@ export function TravelMap() {
             </span>
           ))}
         </div>
-      </div>
-      <div className="absolute top-3 right-3 flex gap-1 shadow-sm">
-        <button
-          type="button"
-          aria-label="Zoom out"
-          disabled={view.zoom <= 1}
-          onClick={() => zoom(1 / 1.4)}
-          className="border border-rule bg-paper px-3 py-2 disabled:opacity-40"
-        >
-          −
-        </button>
-        <button
-          type="button"
-          aria-label="Zoom in"
-          disabled={view.zoom >= 8}
-          onClick={() => zoom(1.4)}
-          className="border border-rule bg-paper px-3 py-2 disabled:opacity-40"
-        >
-          +
-        </button>
-        <button
-          type="button"
-          onClick={() => update(initial)}
-          className="border border-rule bg-paper px-3 py-2 text-xs"
-        >
-          Reset
-        </button>
       </div>
       <p className="pointer-events-none absolute bottom-2 left-3 font-mono text-[9px] text-[#162033]">
         Drag to pan · Scroll / pinch to zoom
