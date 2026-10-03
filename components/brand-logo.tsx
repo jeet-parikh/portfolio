@@ -1,23 +1,15 @@
-import Image from "next/image";
-import { basePath } from "@/lib/base-path";
-
-/**
- * Renders the decorative JP monogram on a charcoal tile.
- * @param props - Optional CSS classes for the tile; defaults to h-10 w-10.
- * @returns The logo tile, with an empty image alt for use beside accessible text.
- */
+/** Decorative standalone monogram; the containing link supplies its label. */
 export function BrandLogo({ className = "h-10 w-10" }: { className?: string }) {
   return (
-    <span
-      className={`inline-flex shrink-0 items-center justify-center rounded-xl bg-[#202020] p-2 ${className}`}
+    <svg
+      viewBox="-28 -12 776 705"
+      fill="currentColor"
+      aria-hidden="true"
+      className={`shrink-0 text-ink ${className}`}
     >
-      <Image
-        src={`${basePath}/brand/jp-mark.svg`}
-        alt=""
-        width={48}
-        height={48}
-        className="h-full w-full"
-      />
-    </span>
+      <path d="M224 16H406L319 103V432L224 524Z" />
+      <path d="M0 416H103V565H222L319 472V608L258 665H0Z" />
+      <path d="M348 109L444 17L640 162C751 244 741 397 640 447C612 460 581 462 555 462H446V665H295L348 612V443L436 359H555C617 359 633 287 586 252L446 153V310L348 405Z" />
+    </svg>
   );
 }
