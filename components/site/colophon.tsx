@@ -25,10 +25,10 @@ export function Colophon() {
         aria-hidden
         className="pointer-events-none absolute top-4 right-0 font-serif text-[24vw] leading-none text-signal/[0.07] italic select-none"
       >
-        04
+        05
       </p>
       <Reveal>
-        <Kicker n="04">Reach</Kicker>
+        <Kicker n="05">Reach</Kicker>
         <h2 className="mt-3 max-w-3xl font-serif text-[clamp(2.6rem,5vw,4.2rem)] leading-[0.95] tracking-[-0.04em]">
           If you want to
           <br />
