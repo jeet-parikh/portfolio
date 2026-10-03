@@ -84,7 +84,7 @@ export function Masthead() {
           data-cursor="go"
           className="flex items-center gap-3 font-mono text-[11px] tracking-[0.22em] uppercase"
         >
-          <BrandLogo className="h-9 w-9" />
+          <BrandLogo className="h-7 w-7" />
         </a>
         <div className="flex items-center gap-4 sm:gap-5">
           <p
