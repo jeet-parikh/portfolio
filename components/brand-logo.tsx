@@ -1,5 +1,10 @@
 import Image from "next/image";
 
+/**
+ * Renders the decorative JP monogram on a charcoal tile.
+ * @param props - Optional CSS classes for the tile; defaults to h-10 w-10.
+ * @returns The logo tile, with an empty image alt for use beside accessible text.
+ */
 export function BrandLogo({ className = "h-10 w-10" }: { className?: string }) {
   return (
     <span

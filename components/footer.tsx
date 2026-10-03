@@ -28,6 +28,10 @@ const socialLinks = [
   },
 ];
 
+/**
+ * Renders the site footer with a branded home link, current year, and social links.
+ * @returns The animated footer and its accessible links.
+ */
 export function Footer() {
   return (
     <motion.footer

@@ -16,6 +16,10 @@ const navItems = [
   { name: "Contact", href: "/contact" },
 ];
 
+/**
+ * Renders responsive site navigation with active links and a theme toggle.
+ * @returns The animated navigation, or null until mounted to avoid theme mismatches.
+ */
 export function Navigation() {
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
