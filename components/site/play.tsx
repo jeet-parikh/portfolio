@@ -117,18 +117,14 @@ export function PadThai() {
             }
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35 }}
-            className="ml-1.5 inline-flex items-center gap-1 align-baseline font-mono text-[10px] tracking-[0.16em] text-signal uppercase not-italic"
+            className="ml-2 inline-flex items-center gap-1.5 align-middle border border-signal/60 px-1.5 py-0.5 font-mono text-[10px] tracking-[0.14em] text-signal not-italic"
           >
-            pad thai
-            <span aria-hidden className="inline-flex items-end gap-0.5">
+            <span aria-hidden className="inline-flex gap-0.5">
               {["one", "two", "three"].slice(0, heat.marks).map((mark) => (
-                <span
-                  key={mark}
-                  className="inline-block h-2 w-1 -skew-x-12 bg-signal"
-                />
+                <span key={mark} className="size-1.5 bg-signal" />
               ))}
             </span>
-            {heat.name}
+            pad thai, {heat.name}
           </motion.span>
         ) : null}
       </AnimatePresence>
