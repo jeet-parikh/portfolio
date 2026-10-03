@@ -8,9 +8,42 @@ export interface Experience {
   current: boolean;
   description: string[];
   tags: string[];
+  aside: string;
 }
 
 export const experience: Experience[] = [
+  {
+    id: "databricks",
+    title: "Software Engineer Intern",
+    company: "Databricks",
+    location: "Mountain View, CA",
+    startDate: "May 2026",
+    endDate: "Present",
+    current: true,
+    aside:
+      "I built an agent that improves production data pipelines. Latency down 30%, compute down 25%.",
+    description: [
+      "I built an AI agent that improves production data pipelines on its own, using a custom harness, MCP tools, and orchestration.",
+      "It cut latency by 30% and compute costs by 25%, which made it possible to offer it at a lower price.",
+    ],
+    tags: ["MCP"],
+  },
+  {
+    id: "yale-cs",
+    title: "President",
+    company: "Yale Computer Society",
+    location: "New Haven, CT",
+    startDate: "Sep 2024",
+    endDate: "Present",
+    current: true,
+    aside:
+      "I lead Yale's largest CS club. 8 products, 20,000+ users, 100+ student developers.",
+    description: [
+      "I lead Yale's largest CS club and the product work for 8 apps. They have 20,000+ users, and 100+ students build them.",
+      "I also lead ymeets. We grew it to 2,500 users with a 10-person team.",
+    ],
+    tags: [],
+  },
   {
     id: "bloomberg",
     title: "Software Engineer Intern",
@@ -19,33 +52,14 @@ export const experience: Experience[] = [
     startDate: "Jun 2025",
     endDate: "Aug 2025",
     current: false,
+    aside:
+      "A Spark and Kafka pipeline. 100M+ financial records a day, on the Terminal.",
     description: [
-      "Engineered a scalable data pipeline using Apache Spark and Kafka to automate the ingestion of 100M+ financial records daily",
-      "Deployed to production on the Bloomberg Terminal, directly powering analytics for 300+ enterprise clients and internal teams",
-      "Led global collaboration with teams in San Francisco and London to gather client needs and validate cross-service integration",
+      "I built a Spark and Kafka pipeline that takes in 100M+ financial records a day.",
+      "It's in production on the Bloomberg Terminal, for 300+ enterprise clients and internal teams.",
+      "I worked with teams in San Francisco and London on what clients needed, and on checking that the services fit together.",
     ],
-    tags: [
-      "Apache Spark",
-      "Kafka",
-      "Python",
-      "Data Engineering",
-      "Production Systems",
-    ],
-  },
-  {
-    id: "yale-medicine",
-    title: "Research Assistant",
-    company: "Yale School of Medicine",
-    location: "New Haven, CT",
-    startDate: "Mar 2025",
-    endDate: "Present",
-    current: true,
-    description: [
-      "Developing a predictive analytics tool using PySpark and AI modeling to forecast breast cancer recurrence",
-      "Interfacing with OMOP-standardized electronic health record data at scale",
-      "Experimenting with NLP techniques for novel feature extraction",
-    ],
-    tags: ["PySpark", "Machine Learning", "Healthcare", "NLP", "Data Science"],
+    tags: ["Apache Spark", "Kafka"],
   },
   {
     id: "ctrltrial",
@@ -55,39 +69,12 @@ export const experience: Experience[] = [
     startDate: "Oct 2024",
     endDate: "Jun 2025",
     current: false,
+    aside: "I grouped clinical trial data so the trends were easier to see.",
     description: [
-      "Built an AI system using semantic vector embeddings, NLP and LLMs to extract and cluster unstructured clinical trial API data",
-      "Deployed a user-facing oncology trial trend analytics tool (React, Three.js) on AWS EC2",
-      "Optimized UX and data visualization for clinical trial insights",
+      "I built a system that uses embeddings, NLP, and LLMs to pull unstructured clinical trial data from an API and group it.",
+      "I shipped an oncology trial trends tool in React and Three.js on AWS EC2, and cleaned up the charts and how people read them.",
     ],
-    tags: [
-      "React",
-      "Three.js",
-      "AWS",
-      "NLP",
-      "Vector Embeddings",
-      "Data Visualization",
-    ],
-  },
-  {
-    id: "yale-cs",
-    title: "Director of Development",
-    company: "Yale Computer Society",
-    location: "New Haven, CT",
-    startDate: "Sep 2024",
-    endDate: "Present",
-    current: true,
-    description: [
-      "Leading product development of Yale's largest CS club, shaping 9 software products with 20,000+ users and 100+ student devs",
-      "Team Lead of ymeets.com; Grew site to 2,500 users while adding features and shipping code from a 10-person developer team",
-    ],
-    tags: [
-      "Leadership",
-      "Product Management",
-      "Team Development",
-      "React",
-      "Node.js",
-    ],
+    tags: ["React", "Three.js", "AWS"],
   },
   {
     id: "pariglo",
@@ -97,18 +84,13 @@ export const experience: Experience[] = [
     startDate: "Jun 2020",
     endDate: "Aug 2024",
     current: false,
+    aside:
+      "Two iOS apps, Kare and PlantVision AI. 10,000+ downloads in 50+ countries.",
     description: [
-      "Launched 2 successful native iOS apps (Kare and PlantVision AI) which have gained 8,000+ downloads across 50+ countries",
-      "Self-taught iOS app development in Swift and Xcode. Integrated push notifications, 2FA, and on-device inference via CoreML",
+      "I started the company and shipped Kare and PlantVision AI. Together they have 10,000+ downloads in 50+ countries.",
+      "I taught myself Swift and Xcode. The apps have push notifications, two-factor login, and on-device models with CoreML.",
     ],
-    tags: [
-      "iOS Development",
-      "Swift",
-      "Entrepreneurship",
-      "CoreML",
-      "Firebase",
-      "Mobile Apps",
-    ],
+    tags: ["Swift", "Xcode", "CoreML"],
   },
   {
     id: "utah-research",
@@ -118,18 +100,12 @@ export const experience: Experience[] = [
     startDate: "Aug 2022",
     endDate: "Jan 2024",
     current: false,
+    aside:
+      "An open-source Python package for materials discovery, and a talk at TMS 2023.",
     description: [
-      "Developed an ML benchmarking suite for complex materials discovery algorithms, available open-source as a Python package",
-      "Ran multi-objective Bayesian optimization jobs with Meta's Ax on SLURM GPU clusters (4,614 CUDA-core years of runtime)",
-      "Co-authored a manuscript and delivered a presentation to 500+ industry leaders at the International TMS 2023 Conference",
+      "I built an open-source Python package that benchmarks algorithms for discovering new materials.",
+      "I co-authored a paper and gave a talk to 500+ people in industry at the TMS 2023 conference.",
     ],
-    tags: [
-      "Machine Learning",
-      "Python",
-      "Research",
-      "Materials Science",
-      "Bayesian Optimization",
-      "GPU Computing",
-    ],
+    tags: ["Python"],
   },
 ];

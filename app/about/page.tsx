@@ -1,18 +1,15 @@
-import { AboutContent } from "@/components/about-content";
+"use client";
 
-export default function AboutPage() {
+import { useEffect } from "react";
+
+export default function AboutRedirect() {
+  useEffect(() => {
+    window.location.replace(`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/#who`);
+  }, []);
+
   return (
-    <div className="min-h-screen py-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-            About Me
-          </h1>
-          
-        </div>
-
-        <AboutContent />
-      </div>
-    </div>
+    <main className="grid min-h-[60vh] place-items-center px-6 pt-28 font-mono text-[11px] tracking-[0.18em] uppercase">
+      <a href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/#who`}>Continue</a>
+    </main>
   );
 }
