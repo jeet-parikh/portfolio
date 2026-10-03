@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { travelPlaces } from "@/data/travel";
+import { travelPlaces, visitedCountries } from "@/data/travel";
 import { publicSrc } from "@/lib/base-path";
 import { BostonFlight } from "./boston-flight";
 
@@ -82,7 +82,8 @@ function TravelMap() {
   return (
     <div>
       <p className="mb-5 text-muted">
-        Places I&apos;ve been, stories I&apos;ve brought back.
+        {visitedCountries.length} countries, and Hawaii. A few places I&apos;ve
+        called adventure.
       </p>
       <div className="relative overflow-hidden border border-rule bg-[#e4edf7]">
         <div
@@ -116,8 +117,8 @@ function TravelMap() {
             }}
           >
             <Image
-              src={publicSrc("/maps/world.svg")}
-              alt="World map"
+              src={publicSrc("/maps/visited-world.svg")}
+              alt="World map highlighting the 20 countries Jeet has visited"
               fill
               className="object-contain"
             />
@@ -127,7 +128,7 @@ function TravelMap() {
                 type="button"
                 aria-label={`Explore ${p.name}, ${p.country}`}
                 onClick={() => setSelected(i)}
-                className="absolute size-3 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-[#1e4fd7] shadow-md"
+                className={`absolute size-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white shadow-md ${selected === i ? "bg-[#d44b25] ring-2 ring-[#d44b25]/40" : "bg-[#162033]"}`}
                 style={{
                   left: `${((p.longitude + 180) / 360) * 100}%`,
                   top: `${((90 - p.latitude) / 180) * 100}%`,
@@ -162,7 +163,7 @@ function TravelMap() {
           </button>
         </div>
         <p className="absolute bottom-3 left-3 font-mono text-[9px] tracking-widest text-[#162033] uppercase">
-          Jeet&apos;s atlas / {travelPlaces.length} stops
+          Jeet&apos;s atlas / {visitedCountries.length} countries
         </p>
       </div>
       <div className="mt-5 border-l-2 border-signal pl-4" aria-live="polite">
@@ -170,25 +171,26 @@ function TravelMap() {
           {place
             ? place.name
             : travelPlaces.length
-              ? "Pick a pin."
+              ? "Where I’ve been."
               : "The map is ready. The stories are next."}
         </h3>
         <p className="mt-1 text-sm text-muted">
           {place
             ? `${place.country}${place.note ? ` — ${place.note}` : ""}`
             : travelPlaces.length
-              ? "Select a destination to explore it."
+              ? "Blue countries are places I’ve visited. Pick a pin or a destination below; country pins mark approximate locations."
               : "My travel pins are coming soon."}
         </p>
       </div>
       {travelPlaces.length > 0 && (
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-4 flex max-h-36 flex-wrap gap-2 overflow-y-auto">
           {travelPlaces.map((p, i) => (
             <button
               key={`${p.name}-${p.latitude}`}
               type="button"
               onClick={() => setSelected(i)}
-              className="border border-rule px-3 py-2 text-sm hover:border-signal"
+              aria-pressed={selected === i}
+              className={`border px-3 py-2 text-sm hover:border-signal ${selected === i ? "border-signal bg-signal/10" : "border-rule"}`}
             >
               {p.name}
             </button>
