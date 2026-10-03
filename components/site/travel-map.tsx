@@ -187,9 +187,12 @@ export function TravelMap() {
         onLostPointerCapture={(e) => release(e.pointerId)}
       >
         <div
-          className="absolute inset-0 origin-top-left will-change-transform"
+          className="absolute top-0 left-0"
           style={{
-            transform: `translate3d(${view.x}px, ${view.y}px, 0) scale(${view.zoom})`,
+            // Resize the vector image instead of magnifying a composited bitmap.
+            width: `${view.zoom * 100}%`,
+            height: `${view.zoom * 100}%`,
+            transform: `translate(${view.x}px, ${view.y}px)`,
           }}
         >
           <Image
@@ -212,8 +215,7 @@ export function TravelMap() {
                 className="relative block"
                 title={`${p.name}${p.name === p.country ? "" : `, ${p.country}`}`}
                 style={{
-                  transform: `translate(-50%, -100%) scale(${1 / view.zoom})`,
-                  transformOrigin: "50% 100%",
+                  transform: "translate(-50%, -100%)",
                 }}
               >
                 <svg
