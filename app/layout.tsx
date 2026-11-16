@@ -1,36 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import {
-  IBM_Plex_Mono,
-  Instrument_Sans,
-  Instrument_Serif,
-} from "next/font/google";
+import { Bricolage_Grotesque } from "next/font/google";
 import type { ReactNode } from "react";
-import { Cursor } from "@/components/site/cursor";
+import { GlassBackground } from "@/components/fluted/glass-background";
+import { Header } from "@/components/fluted/header";
 import { Konami } from "@/components/site/konami";
-import { Masthead } from "@/components/site/masthead";
-import { Providers } from "@/components/site/providers";
-import { Rail } from "@/components/site/rail";
-import { Spine } from "@/components/site/spine";
 import "./globals.css";
 
-const sans = Instrument_Sans({
+// One typeface everywhere: clean and legible, with a little quirk in the letterforms.
+// It's variable, and optical sizing tightens the display sizes on its own.
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-instrument-sans",
-  display: "swap",
-});
-
-const serif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-instrument-serif",
-  display: "swap",
-});
-
-const mono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-plex-mono",
+  axes: ["opsz"],
+  variable: "--font-bricolage",
   display: "swap",
 });
 
@@ -38,7 +19,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://jeet-parikh.github.io"),
   title: "Jeet Parikh — EECS, Yale",
   description:
-    "Jeet Parikh studies electrical engineering and computer science at Yale. Software engineer intern at Databricks, president of the Yale Computer Society, and founder of two iOS apps.",
+    "Jeet Parikh studies electrical engineering and computer science at Yale, leads the Yale Computer Society, and builds products for people. Previously at Databricks and Bloomberg.",
   keywords: [
     "Jeet Parikh",
     "Yale",
@@ -56,13 +37,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Jeet Parikh — EECS, Yale",
     description:
-      "Who Jeet is, and the work: Databricks, Yale Computer Society, Bloomberg, and the apps he shipped.",
+      "EECS at Yale. President of the Yale Computer Society; previously Databricks and Bloomberg; two iOS apps.",
     type: "website",
     locale: "en_US",
     siteName: "Jeet Parikh",
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/home/headshot.JPG`,
+        url: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/home/jeet.jpg`,
         alt: "Jeet Parikh",
       },
     ],
@@ -71,8 +52,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Jeet Parikh — EECS, Yale",
     description:
-      "EECS at Yale. Databricks, Yale Computer Society, Bloomberg, and two iOS apps.",
-    images: [`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/home/headshot.JPG`],
+      "EECS at Yale. Yale Computer Society; previously Databricks and Bloomberg; two iOS apps.",
+    images: [`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/home/jeet.jpg`],
     creator: "@jeetparikh",
   },
   icons: {
@@ -90,7 +71,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f3f6fb",
+  themeColor: "#050607",
 };
 
 export default function RootLayout({
@@ -99,33 +80,18 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${sans.variable} ${serif.variable} ${mono.variable}`}
-    >
+    <html lang="en" suppressHydrationWarning className={bricolage.variable}>
       <body className="antialiased">
-        <script
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: static theme bootstrap, no user input
-          dangerouslySetInnerHTML={{
-            __html:
-              "try{if(localStorage.getItem('jeet-press')==='night')document.documentElement.dataset.press='night'}catch(e){}",
-          }}
-        />
         <a
           href="#who"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[95] focus:bg-ink focus:px-3 focus:py-2 focus:text-paper"
         >
           Skip to content
         </a>
-        <Providers>
-          <Cursor />
-          <Masthead />
-          <Rail />
-          <Spine />
-          {children}
-          <Konami />
-        </Providers>
+        <GlassBackground />
+        <Header />
+        {children}
+        <Konami />
       </body>
     </html>
   );
