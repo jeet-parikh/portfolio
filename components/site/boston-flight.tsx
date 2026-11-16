@@ -256,7 +256,7 @@ export function BostonFlight() {
             <p className="font-mono text-[10px] tracking-[.25em] uppercase">
               {skin.venue} / Boston Flight
             </p>
-            <h3 className="mt-2 font-serif text-3xl sm:text-5xl">
+            <h3 className="mt-2 text-3xl font-semibold tracking-[-0.035em] sm:text-5xl">
               {paused
                 ? "Timeout."
                 : phase === "over"

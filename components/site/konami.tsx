@@ -67,7 +67,7 @@ export function Konami() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setOpen(false)}
-          className="fixed inset-0 z-[90] grid place-items-center bg-ink/92 px-6 text-paper"
+          className="fixed inset-0 z-[90] grid place-items-center bg-paper/88 px-6 text-ink backdrop-blur-md"
         >
           {pieces.map((piece) => (
             <motion.span
@@ -85,10 +85,10 @@ export function Konami() {
             />
           ))}
           <span className="relative max-w-xl text-center">
-            <span className="mt-4 block font-serif text-5xl leading-[0.95] md:text-7xl">
+            <span className="mt-4 block text-5xl leading-[0.95] font-semibold tracking-[-0.04em] md:text-7xl">
               You found it.
             </span>
-            <span className="mt-4 block font-serif text-2xl text-mark italic">
+            <span className="mt-4 block text-2xl font-light text-mark">
               Class of 2028.
             </span>
           </span>

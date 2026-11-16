@@ -17,21 +17,8 @@ export function InterestPopup({
     const previousFocus = document.activeElement as HTMLElement | null;
     const overflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    // Native dialogs occupy the browser's top layer, above any z-index.
-    // Move the existing cursor into that layer while this dialog is open.
-    const cursorNodes = Array.from(
-      document.querySelectorAll<HTMLElement>(".cursor-dot, .cursor-ring"),
-    ).map((node) => {
-      const marker = document.createComment("cursor position");
-      node.before(marker);
-      dialog.current?.append(node);
-      return { node, marker };
-    });
     dialog.current?.showModal();
     return () => {
-      for (const { node, marker } of cursorNodes) {
-        marker.replaceWith(node);
-      }
       document.body.style.overflow = overflow;
       previousFocus?.focus({ preventScroll: true });
     };
@@ -41,14 +28,17 @@ export function InterestPopup({
       ref={dialog}
       aria-labelledby="interest-title"
       onCancel={onClose}
-      className="interest-dialog m-auto max-h-[90dvh] w-[calc(100%-2rem)] max-w-3xl overflow-y-auto border border-ink bg-paper p-5 text-ink shadow-2xl backdrop:bg-black/65 sm:p-8"
+      className="interest-dialog m-auto max-h-[90dvh] w-[calc(100%-2rem)] max-w-3xl overflow-y-auto rounded border border-rule bg-sheet p-5 text-ink shadow-2xl backdrop:bg-black/70 backdrop:backdrop-blur-md sm:p-8"
     >
       <div className="mb-6 flex items-start justify-between gap-4">
         <div>
-          <p className="font-mono text-[10px] tracking-[.2em] text-signal uppercase">
+          <p className="text-[11px] font-medium tracking-[.14em] text-muted uppercase">
             Off the clock / {kind === "sports" ? "01" : "02"}
           </p>
-          <h2 className="mt-2 font-serif text-4xl" id="interest-title">
+          <h2
+            className="mt-2 text-4xl font-semibold tracking-[-0.035em]"
+            id="interest-title"
+          >
             {kind === "sports" ? "Boston, all the way." : "A world to explore."}
           </h2>
         </div>
@@ -56,9 +46,9 @@ export function InterestPopup({
           type="button"
           onClick={onClose}
           aria-label="Close popup"
-          className="border border-ink px-3 py-2 text-sm"
+          className="inline-flex min-h-10 shrink-0 items-center gap-2 text-sm text-muted transition-colors hover:text-ink"
         >
-          Close ×
+          Close <span aria-hidden>×</span>
         </button>
       </div>
       {kind === "sports" ? <BostonFlight /> : <TravelMap />}

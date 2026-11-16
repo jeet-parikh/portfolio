@@ -18,8 +18,8 @@ export const experience: Experience[] = [
     company: "Databricks",
     location: "Mountain View, CA",
     startDate: "May 2026",
-    endDate: "Present",
-    current: true,
+    endDate: "Aug 2026",
+    current: false,
     aside:
       "I built an agent that improves production data pipelines. Latency down 30%, compute down 25%.",
     description: [
